@@ -7,8 +7,9 @@ const CellContainer = styled.div`
     align-items: center;
     min-width:22%;
     min-height:22%;
-    background-color:#cdc0b0;
+    background-color:rgb(145,145,145);
     border-radius:2px;
+    COLOR:white;
 `;
 
 const Cell = () => (

@@ -11,7 +11,7 @@ const GridContainer = styled.div`
     width:400px;
     height:400px;
     border-radius:3px;
-    background-color:#34495e;
+    background-color:#ecf0f1;
 `;
 
 const GridInner = styled.div`
@@ -23,7 +23,7 @@ const GridInner = styled.div`
     height:90%;
     padding:5px;
     border-radius:3px;
-    background-color:#2c3e50;
+    background-color:#bdc3c7;
     box-shadow: inset 0px 12px 30px rgba(25,25,25, 0,9);
 `;
 
