@@ -1,9 +1,9 @@
-import { MAPLOADED } from '../actions/loadMap';
+import { CELLSLOADED } from '../actions/loadCells';
 
 const reducer = (state = [], action) => {
   switch (action.type) {
-    case MAPLOADED:
-        return action.map;
+    case CELLSLOADED:
+        return action.cells;
     default:
       return state;
   }

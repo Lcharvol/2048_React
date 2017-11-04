@@ -1,15 +1,19 @@
 import React from 'react';
 import configureStore from './store';
 import App from './components/App';
-import { loadMap } from './actions/loadMap';
+import { Provider } from 'react-redux';
+import { loadCells} from './actions/loadCells';
+import './index.css';
 
 const initialState = {
 };
 
 const store = configureStore(initialState);
 
-store.dispatch(loadMap());
+store.dispatch(loadCells());
 
 export const root = (
-  <App/>
+  <Provider store={store}>
+    <App/>
+  </Provider>
 );

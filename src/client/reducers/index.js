@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import map from './map';
+import cells from './cells';
 
 const reducer = combineReducers({
-    map,
+    cells,
 });
 
 export default reducer;
