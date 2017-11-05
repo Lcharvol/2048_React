@@ -8,6 +8,7 @@ import Grid from '../Grid';
 const Container = styled.div`
     position:relative;
     display:flex;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
     flex:1;
@@ -17,12 +18,21 @@ const Container = styled.div`
 	box-shadow: 10px 12px 12px black;
 `;
 
+const Title = styled.p`
+    margin:0;
+    font-size:10em;
+    background:  linear-gradient( 160deg, #92FFC0, #002661  120%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+`;
+
 const onKeyPress = () =>{
     console.log('test'); 
 }
 
 const App = ({ cells }) => (
     <Container id="keyboard" onKeyDown={() => onKeyPress()}>
+        <Title>2048</Title>
         <Grid cells={cells}/>
     </Container>
 );

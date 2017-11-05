@@ -9,6 +9,4 @@ export const cellsLoaded = cells => (dispatch) => {
 const initCells = cells => map(cell => ({ value: 0 }), cells)
 
 export const loadCells = () => (dispatch) => {
-    const cells = new Array(16);
-    dispatch(cellsLoaded(initCells(cells)));
 }

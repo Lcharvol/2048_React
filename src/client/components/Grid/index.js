@@ -10,6 +10,8 @@ const GridContainer = styled.div`
     align-items:center;
     width:400px;
     height:400px;
+    min-width:400px;
+    min-height:400px;
     border-radius:3px;
     background-color:#ecf0f1;
 `;
@@ -24,7 +26,8 @@ const GridInner = styled.div`
     padding:5px;
     border-radius:3px;
     background-color:#bdc3c7;
-    box-shadow: inset 0px 12px 30px rgba(25,25,25, 0,9);
+    background: linear-gradient( 160deg, #92FFC0, #002661  120%);
+    box-shadow: inset 12px 12px 30px rgba(25,25,25, 0,9);
 `;
 
 const Grid = ({ cells }) => (

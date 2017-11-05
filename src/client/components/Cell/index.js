@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const CellContainer = styled.div`
     display:flex;
@@ -7,15 +8,25 @@ const CellContainer = styled.div`
     align-items: center;
     min-width:22%;
     min-height:22%;
-    background-color:rgb(145,145,145);
+    background-color:#ecf0f1;
     border-radius:2px;
-    COLOR:white;
+    color:rgb(116,185,182);
+    box-shadow: 2px 2px 2px rgba(0,0, 0,0.2);
+    font-size:2em;
 `;
 
-const Cell = () => (
+const Size = styled.p`
+    margin:0;
+`;
+
+const Cell = ({ value }) => (
     <CellContainer>
-        <p>0</p>
+        <Size>{value}</Size>
     </CellContainer>
 );
+
+Cell.propTypes = {
+    value: PropTypes.number.isRequired,
+}
 
 export default Cell;
