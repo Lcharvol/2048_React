@@ -48,8 +48,8 @@ export const cells = [
     },
     {
         id: 9,
-        value: 2,
-        pos: 10,
+        value: 0,
+        pos: -1,
     },
     {
         id: 10,
@@ -58,8 +58,8 @@ export const cells = [
     },
     {
         id: 11,
-        value: 2,
-        pos: 12,
+        value: 0,
+        pos: -1,
     },
     {
         id: 12,
