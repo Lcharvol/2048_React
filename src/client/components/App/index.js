@@ -2,9 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { withEvents } from 'react-compose-events';
-import EventListener, {withOptions} from 'react-event-listener';
-import {  compose } from 'recompose';
+import EventListener from 'react-event-listener';
 import { move } from '../../actions/move';
 import PropTypes from 'prop-types';
 import Grid from '../Grid';
@@ -31,7 +29,6 @@ const Title = styled.p`
 `;
 
 const App = ({ cells, move }) => {
-    const handleKeyDown = (e) => console.log(e)
     return (
         <Container>
             <EventListener target={document} onKeyDown={move} />
