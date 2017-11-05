@@ -2,8 +2,6 @@ import { map } from 'ramda';
 import { CELLSLOADED } from '../actions/loadCells';
 import { MOVELEFT, MOVERIGHT, MOVETOP, MOVEBOTTOM } from '../actions/move';
 
-const isPositionFree = pos => true;
-
 const goTop = (pos, cells) => {
   if (pos === -1) {
     return -1;

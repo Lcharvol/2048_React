@@ -3,17 +3,6 @@ import PropTypes from 'prop-types';
 import { map } from 'ramda';
 import styled from 'styled-components';
 
-const GridInner = styled.div`
-    display: flex;
-    width:90%;
-    height:90%;
-    padding:10px;
-    border-radius:3px;
-    background-color:#bdc3c7;
-    background: linear-gradient( 160deg, #92FFC0, #002661  120%);
-    box-shadow: inset 12px 12px 30px rgba(25,25,25, 0,9);
-`;
-
 const GridContainer = styled.div`
     display: grid;
     position:absolute;
