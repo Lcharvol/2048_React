@@ -8,15 +8,13 @@ const getRandomNumber = (min, max) => {
     let random = Math.round(min + (Math.random() * (max-min)));
     return random;
 }
-// getRandomStart(0, 15, false)
+
 const getRandomStart = cells => {
     const pos1 = getRandomNumber(0, 15);
     let pos2 = getRandomNumber(0, 15);
     while(pos2 === pos1) {
         pos2 = getRandomNumber(0, 15);
     }
-    console.log('pos1', pos1);
-    console.log('pos2', pos2);
     return cells.map((cell) => {
         if (cell.id === pos1 || cell.id === pos2 ) {
             return ({

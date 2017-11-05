@@ -2,55 +2,76 @@ import { map } from 'ramda';
 import { CELLSLOADED } from '../actions/loadCells';
 import { MOVELEFT, MOVERIGHT, MOVETOP, MOVEBOTTOM } from '../actions/move';
 
+const positionIsFree = (cells, pos) => {
+  let freeCell = true;
+  cells.map(cell => {
+    if(cell.pos === pos && cell.value !== -1) {
+      freeCell = false;
+    }
+  });
+  return freeCell;
+}
+
 const goTop = (pos, cells) => {
+  let newPos = pos;
+  let dec = pos - 4;
   if (pos === -1) {
     return -1;
   }
-  let newPos = pos;
-  cells.map((cell, index) => {
-    if (pos % 4 === (index + 1) % 4 && (index + 1) < pos && (index + 1) < newPos && cells[index].pos === -1) {
-      newPos = index + 1;
+  while (dec >= 0) {
+    if (positionIsFree(cells, dec)) {
+      return dec;
     }
-  });
+    else return newPos;
+  }
   return newPos;
 };
 
 const goBottom = (pos, cells) => {
+  let newPos = pos;
+  let dec = pos + 4;
   if (pos === -1) {
     return -1;
   }
-  let newPos = pos;
-  cells.map((cell, index) => {
-    if (pos % 4 === (index + 1) % 4 && (index + 1) > pos && (index + 1) < 17) {
-      newPos = index + 1;
+  while (dec <= 15) {
+    if (positionIsFree(cells, dec)) {
+      return dec;
     }
-  });
+    else return newPos;
+  }
   return newPos;
 };
 
 const goRight= (pos, cells) => {
+  let newPos = pos;
+  let dec = pos + 1;
   if (pos === -1) {
     return -1;
   }
-  let newPos = pos;
-  cells.map((cell, index) => {
-    if (Math.ceil(pos / 4) === Math.ceil((index + 1) / 4) && (index + 1) > pos) {
-      newPos = index + 1;
+  while (dec % 4 !== 0) {
+    if (positionIsFree(cells, dec)) {
+      return dec;
     }
-  });
+    else return newPos;
+  }
   return newPos;
 };
 
 const goLeft= (pos, cells) => {
+  let newPos = pos;
+  let dec = pos - 1;
+  if (pos === 0) {
+    return 0;
+  }
   if (pos === -1) {
     return -1;
   }
-  let newPos = pos;
-  cells.map((cell, index) => {
-    if (Math.ceil(pos / 4) === Math.ceil((index+  1) / 4) && (index + 1) < newPos) {
-      newPos = index + 1;
+  while (dec % 4 !== 3) {
+    if (positionIsFree(cells, dec)) {
+      return dec;
     }
-  });
+    else return newPos;
+  }
   return newPos;
 };
 
