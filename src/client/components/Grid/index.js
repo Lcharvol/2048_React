@@ -33,7 +33,7 @@ const GridInner = styled.div`
 const Grid = ({ cells }) => (
     <GridContainer>
         <GridInner>
-            {map(cell => <Cell key={cell.value} value={cell.value}/>, cells)}
+            {map(cell => <Cell key={cell.id} value={cell.value}/>, cells)}
         </GridInner>
     </GridContainer>
 );

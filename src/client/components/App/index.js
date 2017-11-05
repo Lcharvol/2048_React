@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { withEvents } from 'react-compose-events';
+import EventListener, {withOptions} from 'react-event-listener';
+import {  compose } from 'recompose';
+import { move } from '../../actions/move';
 import PropTypes from 'prop-types';
 import Grid from '../Grid';
 
@@ -26,22 +30,23 @@ const Title = styled.p`
     -webkit-text-fill-color: transparent;
 `;
 
-const onKeyPress = () =>{
-    console.log('test'); 
-}
-
-const App = ({ cells }) => (
-    <Container id="keyboard" onKeyDown={() => onKeyPress()}>
-        <Title>2048</Title>
-        <Grid cells={cells}/>
-    </Container>
-);
+const App = ({ cells, move }) => {
+    const handleKeyDown = (e) => console.log(e)
+    return (
+        <Container>
+            <EventListener target={document} onKeyDown={move} />
+            <Title>2048</Title>
+            <Grid cells={cells}/>
+        </Container>
+    )
+};
 
 App.propTypes = {
     cells: PropTypes.array.isRequired,
+    move: PropTypes.func.isRequired,
 }
 
-const actions = {};
+const actions = { move };
 
 const mapStateToProps = state => ({
   cells: state.cells,
