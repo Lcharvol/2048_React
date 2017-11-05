@@ -7,12 +7,11 @@ import { cells } from './data/initialMap';
 import './index.css';
 
 const initialState = {
-  cells,
 };
 
 const store = configureStore(initialState);
 
-store.dispatch(loadCells());
+store.dispatch(loadCells(cells));
 
 export const root = (
   <Provider store={store}>

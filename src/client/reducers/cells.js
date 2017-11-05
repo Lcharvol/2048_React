@@ -36,7 +36,20 @@ const goRight= (pos, cells) => {
   }
   let newPos = pos;
   cells.map((cell, index) => {
-    if (pos / 4 === (index + 1) / 4 && (index + 1) > pos && (index + 1) < 17) {
+    if (Math.ceil(pos / 4) === Math.ceil((index + 1) / 4) && (index + 1) > pos) {
+      newPos = index + 1;
+    }
+  });
+  return newPos;
+};
+
+const goLeft= (pos, cells) => {
+  if (pos === -1) {
+    return -1;
+  }
+  let newPos = pos;
+  cells.map((cell, index) => {
+    if (Math.ceil(pos / 4) === Math.ceil((index+  1) / 4) && (index + 1) < newPos) {
       newPos = index + 1;
     }
   });
@@ -63,7 +76,7 @@ const moveRight= cells => {
 
 const moveLeft = cells => {
   return map(cell => (
-    {...cell, pos: cell.pos - 1}
+    {...cell, pos: goLeft(cell.pos, cells)}
   ), cells)
 };
 

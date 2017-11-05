@@ -6,7 +6,8 @@ export const cellsLoaded = cells => (dispatch) => {
    dispatch(({ type: CELLSLOADED, cells }));
 }
 
-const initCells = cells => map(cell => ({ value: 0 }), cells)
+const getRandomStart = cells => cells;
 
-export const loadCells = () => (dispatch) => {
+export const loadCells = cells => dispatch => {
+    dispatch(cellsLoaded(getRandomStart(cells)));
 }
