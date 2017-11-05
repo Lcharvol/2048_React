@@ -29,10 +29,8 @@ const GridInner = styled.div`
 
 const Grid = ({ cells }) => (
     <GridContainer>
-        {console.log('map', map)}
         <GridInner>
-            {console.log(cells)}
-            {map(cell => <Cell key={cell}/>, cells)}
+            {map(cell => <Cell key={cell.value} value={cell.value}/>, cells)}
         </GridInner>
     </GridContainer>
 );

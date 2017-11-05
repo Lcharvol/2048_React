@@ -14,6 +14,6 @@ store.dispatch(loadCells());
 
 export const root = (
   <Provider store={store}>
-    <App/>
+    <App />
   </Provider>
 );

@@ -17,8 +17,12 @@ const Container = styled.div`
 	box-shadow: 10px 12px 12px black;
 `;
 
+const onKeyPress = () =>{
+    console.log('test'); 
+}
+
 const App = ({ cells }) => (
-    <Container>
+    <Container id="keyboard" onKeyDown={() => onKeyPress()}>
         <Grid cells={cells}/>
     </Container>
 );
