@@ -4,57 +4,57 @@ export const cells = [
     {
         id: 0,
         value: 0,
-        pos: 1,
+        pos: -1,
     },
     {
         id: 1,
         value: 0,
-        pos: 2,
+        pos: -1,
     },
     {
         id: 2,
         value: 0,
-        pos: 3,
+        pos: -1,
     },
     {
         id: 3,
         value: 0,
-        pos: 4,
+        pos: -1,
     },
     {
         id: 4,
         value: 0,
-        pos: 5,
+        pos: -1,
     },
     {
         id: 5,
         value: 0,
-        pos: 6,
+        pos: -1,
     },
     {
         id: 6,
         value: 0,
-        pos: 7,
+        pos: -1,
     },
     {
         id: 7,
         value: 0,
-        pos: 8,
+        pos: -1,
     },
     {
         id: 8,
         value: 0,
-        pos: 9,
+        pos: -1,
     },
     {
         id: 9,
         value: 0,
-        pos: 10,
+        pos: -1,
     },
     {
         id: 10,
         value: 0,
-        pos: 11,
+        pos: -1,
     },
     {
         id: 11,
@@ -64,21 +64,21 @@ export const cells = [
     {
         id: 12,
         value: 0,
-        pos: 13,
+        pos: -1,
     },
     {
         id: 13,
-        value: 2,
-        pos: 14,
+        value: 0,
+        pos: -1,
     },
     {
         id: 14,
-        value: 0,
-        pos:15,
+        value: 2,
+        pos: 15,
     },
     {
         id: 15,
-        value: 0,
+        value: 2,
         pos: 16,
     },
 ];

@@ -2,21 +2,62 @@ import { map } from 'ramda';
 import { CELLSLOADED } from '../actions/loadCells';
 import { MOVELEFT, MOVERIGHT, MOVETOP, MOVEBOTTOM } from '../actions/move';
 
+const isPositionFree = pos => true;
+
+const goTop = (pos, cells) => {
+  if (pos === -1) {
+    return -1;
+  }
+  let newPos = pos;
+  cells.map((cell, index) => {
+    if (pos % 4 === (index + 1) % 4 && (index + 1) < pos && (index + 1) < newPos && cells[index].pos === -1) {
+      newPos = index + 1;
+    }
+  });
+  return newPos;
+};
+
+const goBottom = (pos, cells) => {
+  if (pos === -1) {
+    return -1;
+  }
+  let newPos = pos;
+  cells.map((cell, index) => {
+    if (pos % 4 === (index + 1) % 4 && (index + 1) > pos && (index + 1) < 17) {
+      newPos = index + 1;
+    }
+  });
+  return newPos;
+};
+
+const goRight= (pos, cells) => {
+  if (pos === -1) {
+    return -1;
+  }
+  let newPos = pos;
+  cells.map((cell, index) => {
+    if (pos / 4 === (index + 1) / 4 && (index + 1) > pos && (index + 1) < 17) {
+      newPos = index + 1;
+    }
+  });
+  return newPos;
+};
+
 const moveTop = cells => {
   return map(cell => (
-    {...cell, pos: cell.pos - 4}
+    {...cell, pos: goTop(cell.pos, cells)}
   ), cells)
 };
 
 const moveBottom = cells => {
   return map(cell => (
-    {...cell, pos: cell.pos + 4}
+    {...cell, pos: goBottom(cell.pos, cells)}
   ), cells)
 };
 
 const moveRight= cells => {
   return map(cell => (
-    {...cell, pos: cell.pos + 1}
+    {...cell, pos: goRight(cell.pos, cells)}
   ), cells) 
 };
 

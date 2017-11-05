@@ -24,12 +24,11 @@ const Size = styled.p`
 `;
 
 const EmptyCell = styled.div`
-    grid-area: ${({ pos }) => `cell_${pos}`};
 `;
 
 const Cell = ({ cell }) => {
     if (cell.value === 0) {
-        return <EmptyCell pos={cell.pos}/>
+        return <EmptyCell/>
     }
     return (
         <CellContainer pos={cell.pos}>

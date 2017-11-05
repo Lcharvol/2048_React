@@ -31,6 +31,7 @@ const GridInner = styled.div`
     grid-template-areas: 'cell_1 cell_2 cell_3 cell_4' 'cell_5 cell_6 cell_7 cell_8'
     'cell_9 cell_10 cell_11 cell_12' 'cell_13 cell_14 cell_15 cell_16';
     z-index:100;
+    transition: all 0.5s ease;
     border-radius:3px;
     box-shadow: 12px 12px 30px rgba(25,25,25, 0.9);
 `;
