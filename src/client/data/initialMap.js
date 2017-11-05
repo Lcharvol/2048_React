@@ -35,7 +35,7 @@ export const cells = [
     },
     {
         id: 8,
-        value: 0,
+        value: 2,
     },
     {
         id: 9,
@@ -59,7 +59,7 @@ export const cells = [
     },
     {
         id: 14,
-        value: 10,
+        value: 2,
     },
     {
         id: 15,
