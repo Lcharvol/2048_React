@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import cells from './cells';
+import cellsGrid1 from './cellsGrid1';
+import cellsGrid2 from './cellsGrid2';
 
 const reducer = combineReducers({
-    cells,
+    cellsGrid1,
+    cellsGrid2,
 });
 
 export default reducer;

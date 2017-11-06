@@ -28,25 +28,27 @@ const Title = styled.p`
     -webkit-text-fill-color: transparent;
 `;
 
-const App = ({ cells, move }) => {
+const App = ({ cellsGrid1= [], cellsGrid2 = [], move }) => {
     return (
         <Container>
             <EventListener target={document} onKeyDown={move} />
-            <Title>2048</Title>
-            <Grid cells={cells}/>
+            <Grid cells={cellsGrid1}/>
+            <Grid cells={cellsGrid2}/>
         </Container>
     )
 };
 
 App.propTypes = {
-    cells: PropTypes.array.isRequired,
+    cellsGrid1: PropTypes.array.isRequired,
+    cellsGrid2: PropTypes.array.isRequired,
     move: PropTypes.func.isRequired,
 }
 
 const actions = { move };
 
 const mapStateToProps = state => ({
-  cells: state.cells,
+  cellsGrid1: state.cellsGrid1,
+  cellsGrid2: state.cellsGrid2,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);

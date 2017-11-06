@@ -1,5 +1,5 @@
 import { map } from 'ramda';
-import { CELLSLOADED } from '../actions/loadCells';
+import { CELLSGRIDONELOADED } from '../actions/loadCells';
 import { MOVELEFT, MOVERIGHT, MOVETOP, MOVEBOTTOM } from '../actions/move';
 
 const positionIsFree = (cells, pos) => {
@@ -75,25 +75,25 @@ const goLeft= (pos, cells) => {
   return newPos;
 };
 
-const moveTop = cells => {
+export const moveTop = cells => {
   return map(cell => (
     {...cell, pos: goTop(cell.pos, cells)}
   ), cells)
 };
 
-const moveBottom = cells => {
+export const moveBottom = cells => {
   return map(cell => (
     {...cell, pos: goBottom(cell.pos, cells)}
   ), cells)
 };
 
-const moveRight= cells => {
+export const moveRight= cells => {
   return map(cell => (
     {...cell, pos: goRight(cell.pos, cells)}
   ), cells) 
 };
 
-const moveLeft = cells => {
+export const moveLeft = cells => {
   return map(cell => (
     {...cell, pos: goLeft(cell.pos, cells)}
   ), cells)
@@ -101,8 +101,8 @@ const moveLeft = cells => {
 
 const reducer = (state = [], action) => {
   switch (action.type) {
-    case CELLSLOADED:
-        return action.cells;
+    case CELLSGRIDONELOADED:
+        return action.cellsGrid1;
     case MOVELEFT:
         return moveLeft(state);
     case MOVERIGHT:
