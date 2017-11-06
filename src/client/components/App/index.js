@@ -28,11 +28,18 @@ const Title = styled.p`
     -webkit-text-fill-color: transparent;
 `;
 
+const Spacer = styled.div`
+    position:relative;
+    width:${({ width = '100%' }) => width};
+    height:${({ height = 0 }) => height};
+`;
+
 const App = ({ cellsGrid1= [], cellsGrid2 = [], move }) => {
     return (
         <Container>
             <EventListener target={document} onKeyDown={move} />
             <Grid cells={cellsGrid1}/>
+            <Spacer height="25px"/>
             <Grid cells={cellsGrid2}/>
         </Container>
     )
