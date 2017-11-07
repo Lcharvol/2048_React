@@ -1,13 +1,16 @@
 import { map } from 'ramda';
 
-const positionIsFree = (cells, pos) => {
-    let freeCell = false;
+const canMoveLeft= (cells, pos) => {
+    let freeCell = Math.ceil((pos + 1) / 4);
     cells.map(cell => {
-        if(cell.pos === pos && cell.value === -1) {
-        freeCell = true;
+        if((cell.pos % 4) === (pos % 4) && cell.pos > pos) {
+            freeCell -= 1;
         }
     });
-    return freeCell;
+    if (freeCell > 0) {
+        return true
+    }
+    return false;
 }
 
 const goLeft= (pos, cells) => {
@@ -20,7 +23,7 @@ const goLeft= (pos, cells) => {
         return -1;
     }
     while (dec % 4 !== 3) {
-        if (positionIsFree(cells, dec)) {
+        if (canMoveLeft(cells, dec)) {
         newPos = dec;
         dec -= 1;
         }
