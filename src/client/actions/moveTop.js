@@ -1,37 +1,30 @@
 import { map } from 'ramda';
 
-const canMoveTop= (cells, pos) => {
-    let freeCell = Math.ceil((pos + 1) / 4);
-
-    cells.map(cell => {
-        if((cell.pos % 4) === (pos % 4) && cell.pos < pos) {
-            freeCell -= 1;
+const countFreeCells = (pos, cells) => {
+    let freeCells = 0;
+    map(cell => {
+        if (cell.pos % 4 === pos % 4 && cell.pos < pos && cell.value === 0) {
+            freeCells += 1;
         }
-    });
-    if (freeCell > 0) {
-        return true
-    }
-    return false;
+        return cell;
+    },cells);
+    console.log(freeCells)
+    return freeCells;
 }
 
-const goTop = (pos, cells) => {
-    let newPos = pos;
-    let dec = pos - 4;
-    if (pos === -1) {
-        return -1;
+const canMove = (pos, cells) => {
+    if (pos < 4 ) {
+        return false;
     }
-    while (dec >= 0) {
-        if (canMoveTop(cells, dec)) {
-            newPos = dec;
-            dec -= 4;
-        }
-        else return newPos;
-    }
-    return newPos;
+    // if (countFreeCells(pos, cells) > 0) {
+    //     return true;
+    // }
+    // return false;
+    return true;
 };
 
 export const moveTop = cells => {
     return map(cell => (
-        {...cell, pos: goTop(cell.pos, cells)}
+        {...cell, pos: canMove(cell.pos, cells) ? cell.pos - 4 : cell.pos}
     ), cells)
 };

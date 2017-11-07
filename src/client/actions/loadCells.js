@@ -17,8 +17,6 @@ const getRandomNumber = (min, max) => {
 const getRandomStart = cells => {
     const pos1 = getRandomNumber(0, 15);
     let pos2 = getRandomNumber(0, 15);
-    const value1 = getRandomNumber(0, 100) <= 15 ? 4 : 2;
-    const value2 = getRandomNumber(0, 100) <= 15 ? 4 : 2;
     while(pos2 === pos1) {
         pos2 = getRandomNumber(0, 15);
     }
@@ -26,7 +24,7 @@ const getRandomStart = cells => {
         if (cell.id === pos1 || cell.id === pos2 ) {
             return ({
                 ...cell,
-                value: cell.id === pos1 ? value1 : value2,
+                value: 1,
                 pos: cell.id === pos1 ? pos1 : pos2,
             })
         }
