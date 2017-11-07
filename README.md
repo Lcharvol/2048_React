@@ -2,7 +2,7 @@ Work in Progress!
 
 How to use:
 
-  -yarn
+  - yarn
   - yarn start
   - open http://localhost:3000/
 
