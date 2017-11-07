@@ -1,6 +1,6 @@
 import { map } from 'ramda';
 import { CELLSGRIDONELOADED } from '../actions/loadCells';
-import { MOVELEFT, MOVERIGHT, MOVETOP, MOVEBOTTOM } from '../actions/move';
+import { MOVELEFTPLAYERONE, MOVERIGHTPLAYERONE, MOVETOPPLAYERONE, MOVEBOTTOMPLAYERONE } from '../actions/move';
 import { moveTop } from '../actions/moveTop';
 import { moveBottom } from '../actions/moveBottom';
 import { moveRight } from '../actions/moveRight';
@@ -10,13 +10,13 @@ const reducer = (state = [], action) => {
   switch (action.type) {
     case CELLSGRIDONELOADED:
         return action.cellsGrid1;
-    case MOVELEFT:
+    case MOVELEFTPLAYERONE:
         return moveLeft(state);
-    case MOVERIGHT:
+    case MOVERIGHTPLAYERONE:
       return moveRight(state);
-    case MOVETOP:
+    case MOVETOPPLAYERONE:
       return moveTop(state);
-    case MOVEBOTTOM:
+    case MOVEBOTTOMPLAYERONE:
       return moveBottom(state);
     default:
       return state;

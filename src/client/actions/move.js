@@ -1,19 +1,36 @@
-export const MOVETOP = 'MOVETOP';
-export const MOVEBOTTOM = 'MOVEBOTTOM';
-export const MOVELEFT = 'MOVELEFT';
-export const MOVERIGHT = 'MOVERIGHT';
+export const MOVETOPPLAYERONE = 'MOVETOPPLAYERONE';
+export const MOVEBOTTOMPLAYERONE = 'MOVEBOTTOMPLAYERONE';
+export const MOVELEFTPLAYERONE = 'MOVELEFTPLAYERONE';
+export const MOVERIGHTPLAYERONE = 'MOVERIGHTPLAYERONE';
+export const MOVETOPPLAYERTWO = 'MOVETOPPLAYERTWO';
+export const MOVEBOTTOMPLAYERTWO = 'MOVEBOTTOMPLAYERTWO';
+export const MOVELEFTPLAYERTWO = 'MOVELEFTPLAYERTWO';
+export const MOVERIGHTPLAYERTWO = 'MOVERIGHTPLAYERTWO';
 
 export const move = event => (dispatch) => {
+    console.log('key', event.key)
     if (event.key === 'ArrowUp') {
-        dispatch(({ type: MOVETOP }));
+        dispatch(({ type: MOVETOPPLAYERONE }));
     };
     if (event.key === 'ArrowDown') {
-        dispatch(({ type: MOVEBOTTOM }));
+        dispatch(({ type: MOVEBOTTOMPLAYERONE }));
     };
     if (event.key === 'ArrowLeft') {
-        dispatch(({ type: MOVELEFT }));
+        dispatch(({ type: MOVELEFTPLAYERONE }));
     };
     if (event.key === 'ArrowRight') {
-        dispatch(({ type: MOVERIGHT }));
+        dispatch(({ type: MOVERIGHTPLAYERONE }));
+    };
+    if (event.key === 'w') {
+        dispatch(({ type: MOVETOPPLAYERTWO }));
+    };
+    if (event.key === 's') {
+        dispatch(({ type: MOVEBOTTOMPLAYERTWO }));
+    };
+    if (event.key === 'a') {
+        dispatch(({ type: MOVELEFTPLAYERTWO }));
+    };
+    if (event.key === 'd') {
+        dispatch(({ type: MOVERIGHTPLAYERTWO }));
     };
 }

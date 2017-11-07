@@ -1,18 +1,21 @@
-import { moveLeft, moveRight, moveTop, moveBottom } from './cellsGrid1';
-import { MOVELEFT, MOVERIGHT, MOVETOP, MOVEBOTTOM } from '../actions/move';
+import { MOVELEFTPLAYERTWO, MOVERIGHTPLAYERTWO, MOVETOPPLAYERTWO, MOVEBOTTOMPLAYERTWO } from '../actions/move';
 import { CELLSGRIDTWOLOADED } from '../actions/loadCells';
+import { moveTop } from '../actions/moveTop';
+import { moveBottom } from '../actions/moveBottom';
+import { moveRight } from '../actions/moveRight';
+import { moveLeft } from '../actions/moveLeft';
 
 const reducer = (state = [], action) => {
     switch (action.type) {
       case CELLSGRIDTWOLOADED:
           return action.cellsGrid2;
-      case MOVELEFT:
+      case MOVELEFTPLAYERTWO:
           return moveLeft(state);
-      case MOVERIGHT:
+      case MOVERIGHTPLAYERTWO:
         return moveRight(state);
-      case MOVETOP:
+      case MOVETOPPLAYERTWO:
         return moveTop(state);
-      case MOVEBOTTOM:
+      case MOVEBOTTOMPLAYERTWO:
         return moveBottom(state);
       default:
         return state;
