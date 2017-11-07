@@ -16,8 +16,12 @@ const GridContainer = styled.div`
     min-width:400px;
     min-height:400px;
     border-radius:4px;
-    background: linear-gradient( 160deg, rgb(75,75,75), rgb(45,45,45) 120%);
-    box-shadow: inset 12px 12px 30px rgba(25,25,25, 0.2);
+    background-color:rgb(25,25,25);
+    box-shadow: inset 12px 12px 30px rgba(25,25,25, 0.4);
+    background: url('https://i.pinimg.com/736x/b6/f7/97/b6f797a70b411b2d6c4481dac17a323a--d-texture-paint-texture.jpg');
+    background-size: 220px 220px;
+    background-repeat: repeat;
+    background-opacity: 0.3;
 `;
 
 const GridInner = styled.div`
