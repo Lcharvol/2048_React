@@ -17,15 +17,6 @@ const Container = styled.div`
     width:100%;
     min-height:100vh;
     background-color:rgb(25,25,25);
-	box-shadow: 10px 12px 12px black;
-`;
-
-const Title = styled.p`
-    margin:0;
-    font-size:10em;
-    background:  linear-gradient( 160deg, #92FFC0, #002661  120%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 `;
 
 const Spacer = styled.div`
@@ -34,13 +25,24 @@ const Spacer = styled.div`
     height:${({ height = 0 }) => height};
 `;
 
+const GridContainer = styled.div`
+    display:flex;
+    flex-direction: column;
+    padding:20px;
+    border-radius: 4px;
+    background-color:rgb(22,22,22);
+    box-shadow: inset 15px 15px 20px rgba(15,15, 15, 0.5);
+`;
+
 const App = ({ cellsGrid1= [], cellsGrid2 = [], move }) => {
     return (
         <Container>
             <EventListener target={document} onKeyDown={move} />
-            <Grid cells={cellsGrid1}/>
-            <Spacer height="25px"/>
-            <Grid cells={cellsGrid2}/>
+            <GridContainer>
+                <Grid cells={cellsGrid1}/>
+                <Spacer height="25px"/>
+                <Grid cells={cellsGrid2}/>
+            </GridContainer>
         </Container>
     )
 };

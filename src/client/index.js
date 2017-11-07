@@ -11,7 +11,7 @@ const initialState = {
 
 const store = configureStore(initialState);
 
-store.dispatch(loadCellsGrids(cellsGrid1, cellsGrid1));
+store.dispatch(loadCellsGrids(cellsGrid1, cellsGrid2));
 
 export const root = (
   <Provider store={store}>

@@ -8,7 +8,6 @@ export const MOVELEFTPLAYERTWO = 'MOVELEFTPLAYERTWO';
 export const MOVERIGHTPLAYERTWO = 'MOVERIGHTPLAYERTWO';
 
 export const move = event => (dispatch) => {
-    console.log('key', event.key)
     if (event.key === 'ArrowUp') {
         dispatch(({ type: MOVETOPPLAYERONE }));
     };

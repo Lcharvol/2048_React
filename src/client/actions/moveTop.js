@@ -1,17 +1,13 @@
 import { map } from 'ramda';
 
 const canMoveTop= (cells, pos) => {
-    console.log(pos)
     let freeCell = Math.ceil((pos + 1) / 4);
-    console.log('first free cell: ', freeCell)
 
     cells.map(cell => {
         if((cell.pos % 4) === (pos % 4) && cell.pos < pos) {
             freeCell -= 1;
-            console.log('ya deja une case')
         }
     });
-    console.log('freeCells', freeCell)
     if (freeCell > 0) {
         return true
     }

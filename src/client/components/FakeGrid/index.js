@@ -17,7 +17,7 @@ const GridContainer = styled.div`
     z-index:50;
     background: linear-gradient( 160deg, #92FFC0, #002661  120%);
     border-radius:3px;
-    box-shadow: inset 12px 12px 30px rgba(25,25,25, 0,9);
+    box-shadow: inset 12px 12px 30px rgba(25,25,25, 0.7);
 `;
 
 const FakeCell = styled.div`

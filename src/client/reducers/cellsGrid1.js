@@ -1,4 +1,3 @@
-import { map } from 'ramda';
 import { CELLSGRIDONELOADED } from '../actions/loadCells';
 import { MOVELEFTPLAYERONE, MOVERIGHTPLAYERONE, MOVETOPPLAYERONE, MOVEBOTTOMPLAYERONE } from '../actions/move';
 import { moveTop } from '../actions/moveTop';
