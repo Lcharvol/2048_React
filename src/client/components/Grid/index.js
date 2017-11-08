@@ -33,7 +33,7 @@ const GridInner = styled.div`
     grid-gap: 11px;
     padding:10px;
     z-index:100;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-in;
     border-radius:3px;
     box-shadow: inset 15px 15px 15px rgba(25,25,25, 0.3);
 `;

@@ -1,3 +1,4 @@
+import { map } from 'ramda';
 export const CELLSGRIDONELOADED = 'CELLSGRIDONELOADED';
 export const CELLSGRIDTWOLOADED = 'CELLSGRIDTWOLOADED';
 
@@ -15,21 +16,18 @@ const getRandomNumber = (min, max) => {
 }
 
 const getRandomStart = cells => {
-    const pos1 = getRandomNumber(0, 15);
-    let pos2 = getRandomNumber(0, 15);
-    while(pos2 === pos1) {
-        pos2 = getRandomNumber(0, 15);
-    }
-    return cells.map((cell) => {
-        if (cell.id === pos1 || cell.id === pos2 ) {
+    const pos = getRandomNumber(0, 15);
+    const placePlay = cells => map(cell => {
+        if (cell.id === pos) {
             return ({
                 ...cell,
                 value: 1,
-                pos: cell.id === pos1 ? pos1 : pos2,
+                pos,
             })
         }
-        else return cell;
-    })
+        return cell;
+    },cells)
+    return placePlay(cells);
 }
 
 export const loadCellsGrids = (cellsGrid1, cellsGrid2) => dispatch => {
