@@ -21,6 +21,8 @@ const CaseContainer = styled.div`
     background: url('https://previews.123rf.com/images/lilu330/lilu3301510/lilu330151000012/47552236-Cartoon-bois-actifs-de-jeux-kit-de-bois-pour-le-d-veloppement-de-jeu-ui-l-ments-vecteur-de-gui-Banque-d%27images.jpg');
     background-size: 720%;
     background-position: -39.5px -53px;
+    border-radius: 13px;
+    overflow: hidden;
 `;
 
 const Texture = styled.div`

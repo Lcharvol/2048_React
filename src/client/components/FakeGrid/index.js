@@ -32,6 +32,8 @@ const FakeCell = styled.div`
     box-shadow: inset 4px 4px 4px rgba(0,0, 0,0.05);
     font-size:2em;
     grid-area: ${({ pos }) => `cell_${pos}`};
+    border-radius: 13px;
+    overflow: hidden;
 `;
 
 const FakeGrid = ({ cells }) => (
