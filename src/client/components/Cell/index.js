@@ -21,7 +21,7 @@ const CellContainer = styled.div`
     transition: all 0.1s ease;
     background: url('https://previews.123rf.com/images/lilu330/lilu3301510/lilu330151000012/47552236-Cartoon-bois-actifs-de-jeux-kit-de-bois-pour-le-d-veloppement-de-jeu-ui-l-ments-vecteur-de-gui-Banque-d%27images.jpg');
     background-size: 720%;
-    background-position: -38px -51.5px;
+    background-position: -39.5px -53px;
 `;
 
 const EmptyCell = styled.div`
