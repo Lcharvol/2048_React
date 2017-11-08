@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { getColorCell } from '../../selectors';
+import Case from '../Case';
 
 const CellContainer = styled.div`
     position:absolute;
@@ -35,6 +36,9 @@ const Texture = styled.div`
 const Cell = ({ cell, top, left }) => {
     if (cell.value === 0) {
         return <EmptyCell/>
+    }
+    if (cell.value === -1) {
+        return <Case cell={cell} pos={cell.pos} top={top} left={left}/>
     }
     return (
         <CellContainer pos={cell.pos} top={top} left={left}>
