@@ -12,7 +12,7 @@ const countFreeCells = (pos, cells) => {
 }
 
 const canMove = (value, pos, cells) => {
-    if (value === 0) {
+    if (value < 0) {
         return false;
     }
     if (pos > 11 ) {

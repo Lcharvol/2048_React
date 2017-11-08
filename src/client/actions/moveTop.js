@@ -1,23 +1,27 @@
 import { map } from 'ramda';
 
-const countFreeCells = (pos, cells) => {
-    let freeCells = 0;
+const isCellFree = (pos, cells) => {
+    let free = 0;
     map(cell => {
-        if ((cell.pos % 4) === (pos % 4) && cell.pos < pos && cell.value === 0) {
-            freeCells += 1;
-        }
-    },cells);
-    return freeCells;
+        if (cell.pos === pos && cell.value < 0) {
+            free += 1;
+        };
+        return cell;
+    }, cells,)
+    if (free === 0) {
+        return true
+    }
+    return false
 }
 
 const canMove = (value, pos, cells) => {
-    if (value === 0) {
+    if (value < 0) {
         return false;
     }
     if (pos < 4 ) {
         return false;
     }
-    if (countFreeCells(pos, cells) > 0) {
+    if (isCellFree(pos - 4, cells)) {
         return true;
     };
     return false;

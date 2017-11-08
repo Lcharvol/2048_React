@@ -17,7 +17,7 @@ const getRandomNumber = (min, max) => {
 
 const getRandomStart = cells => {
     const pos = getRandomNumber(0, 15);
-    const placePlay = cells => map(cell => {
+    const placePlayer = cells => map(cell => {
         if (cell.id === pos) {
             return ({
                 ...cell,
@@ -27,7 +27,7 @@ const getRandomStart = cells => {
         }
         return cell;
     },cells)
-    return placePlay(cells);
+    return placePlayer(cells);
 }
 
 export const loadCellsGrids = (cellsGrid1, cellsGrid2) => dispatch => {
