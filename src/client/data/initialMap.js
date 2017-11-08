@@ -3,7 +3,7 @@
 export const cellsGrid1 = [
     {
         id: 0,
-        value: 0,
+        value: -1,
         pos: 1,
     },
     {
@@ -110,7 +110,7 @@ export const cellsGrid2 = [
     },
     {
         id: 5,
-        value: 0,
+        value: -1,
         pos: 6,
     },
     {
