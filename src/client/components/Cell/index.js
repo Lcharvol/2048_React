@@ -13,16 +13,17 @@ const CellContainer = styled.div`
     min-height:22%;
     background-color:#ecf0f1;
     border-radius:2px;
-    box-shadow: 2px 2px 2px rgba(0,0, 0,0.2);
+    box-shadow: 1px 1px 25px rgba(163, 235, 12, 0.4);
     font-size:2em;
     width:80px;
     height:80px;
+
     left: ${({ left }) => `${left}px`};
     top: ${({ top }) => `${top}px`};
     transition: all 0.1s ease;
-    background: url('https://previews.123rf.com/images/lilu330/lilu3301510/lilu330151000012/47552236-Cartoon-bois-actifs-de-jeux-kit-de-bois-pour-le-d-veloppement-de-jeu-ui-l-ments-vecteur-de-gui-Banque-d%27images.jpg');
-    background-size: 720%;
-    background-position: -39.5px -53px;
+    background: url('https://thumbs.dreamstime.com/z/wooden-buttons-set-game-ui-vector-cartoon-illustrations-wood-button-texture-interface-94303418.jpg');
+    background-size: 730%;
+    background-position: 235px 282px;
     border-radius: 13px;
     overflow: hidden;
 `;
