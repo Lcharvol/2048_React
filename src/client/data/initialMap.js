@@ -95,7 +95,7 @@ export const cellsGrid2 = [
     },
     {
         id: 2,
-        value: 0,
+        value: -2,
         pos: 3,
     },
     {
