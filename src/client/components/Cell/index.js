@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { getColorCell } from '../../selectors';
 
 const CellContainer = styled.div`
+    position:absolute;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -13,17 +14,14 @@ const CellContainer = styled.div`
     border-radius:2px;
     box-shadow: 2px 2px 2px rgba(0,0, 0,0.2);
     font-size:2em;
-    grid-area: ${({ pos }) => `cell_${pos}`};
+    width:80px;
+    height:80px;
+    left: ${({ left }) => `${left}px`};
+    top: ${({ top }) => `${top}px`};
+    transition: all 0.1s ease;
     background: url('https://previews.123rf.com/images/lilu330/lilu3301510/lilu330151000012/47552236-Cartoon-bois-actifs-de-jeux-kit-de-bois-pour-le-d-veloppement-de-jeu-ui-l-ments-vecteur-de-gui-Banque-d%27images.jpg');
     background-size: 720%;
     background-position: -38px -51.5px;
-`;
-
-const Size = styled.p`
-    margin:0;
-    background: ${({ color }) => color};
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 `;
 
 const EmptyCell = styled.div`
@@ -34,12 +32,12 @@ const Texture = styled.div`
     height:100%;
 `;
 
-const Cell = ({ cell }) => {
+const Cell = ({ cell, top, left }) => {
     if (cell.value === 0) {
         return <EmptyCell/>
     }
     return (
-        <CellContainer pos={cell.pos}>
+        <CellContainer pos={cell.pos} top={top} left={left}>
             <Texture />
         </CellContainer>
     )
@@ -47,6 +45,8 @@ const Cell = ({ cell }) => {
 
 Cell.propTypes = {
     cell: PropTypes.object.isRequired,
+    top: PropTypes.number.isRequired,
+    left: PropTypes.number.isRequired,
 }
 
 export default Cell;

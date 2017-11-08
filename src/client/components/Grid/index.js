@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Motion, spring }from 'react-motion';
 import PropTypes from 'prop-types';
 import Cell from '../Cell';
 import FakeGrid from '../FakeGrid';
@@ -25,15 +26,12 @@ const GridContainer = styled.div`
 `;
 
 const GridInner = styled.div`
+    position:relative;
     display: grid;
     width:350px;
     height:350px;
     grid-gap: 11px;
     padding:10px;
-    grid-auto-columns: minmax(22.5%, 22.5%);
-    grid-auto-rows: minmax(22.5%, 22.5%);
-    grid-template-areas: 'cell_0 cell_1 cell_2 cell_3' 'cell_4 cell_5 cell_6 cell_7'
-    'cell_8 cell_9 cell_10 cell_11' 'cell_12 cell_13 cell_14 cell_15';
     z-index:100;
     transition: all 0.5s ease;
     border-radius:3px;
@@ -43,7 +41,9 @@ const GridInner = styled.div`
 const Grid = ({ cells }) => (
     <GridContainer>
         <GridInner>
-            {map(cell => <Cell key={cell.id} cell={cell}/>, cells)}
+            {map(cell => (
+                <Cell key={cell.id} cell={cell} top={(Math.round((cell.pos - 2) / 4) * 90) + 10} left={((cell.pos % 4) * 90) + 10}/>
+            ), cells)}
         </GridInner>
         <FakeGrid cells={cells}/>
     </GridContainer>
