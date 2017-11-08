@@ -3,28 +3,29 @@ import { map } from 'ramda';
 const countFreeCells = (pos, cells) => {
     let freeCells = 0;
     map(cell => {
-        if (cell.pos % 4 === pos % 4 && cell.pos < pos && cell.value === 0) {
+        if ((cell.pos % 4) === (pos % 4) && cell.pos < pos && cell.value === 0) {
             freeCells += 1;
         }
-        return cell;
     },cells);
-    console.log(freeCells)
     return freeCells;
 }
 
-const canMove = (pos, cells) => {
+const canMove = (value, pos, cells) => {
+    if (value === 0) {
+        return false;
+    }
     if (pos < 4 ) {
         return false;
     }
-    // if (countFreeCells(pos, cells) > 0) {
-    //     return true;
-    // }
-    // return false;
-    return true;
+    if (countFreeCells(pos, cells) > 0) {
+        return true;
+    };
+    return false;
 };
 
 export const moveTop = cells => {
-    return map(cell => (
-        {...cell, pos: canMove(cell.pos, cells) ? cell.pos - 4 : cell.pos}
-    ), cells)
+    return map(cell => {
+        const newPos = canMove(cell.value, cell.pos, cells) ? cell.pos - 4 : cell.pos;
+        return ({...cell, pos: newPos})
+    }, cells)
 };

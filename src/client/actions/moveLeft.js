@@ -8,11 +8,13 @@ const countFreeCells = (pos, cells) => {
         }
         return cell;
     },cells);
-    console.log(freeCells)
     return freeCells;
 }
 
-const canMove = (pos, cells) => {
+const canMove = (value, pos, cells) => {
+    if (value === 0) {
+        return false;
+    }
     if (pos % 4 === 0) {
         return false;
     }
@@ -25,6 +27,6 @@ const canMove = (pos, cells) => {
 
 export const moveLeft = cells => {
     return map(cell => (
-        {...cell, pos: canMove(cell.pos, cells) ? cell.pos - 1 : cell.pos}
+        {...cell, pos: canMove(cell.value, cell.pos, cells) ? cell.pos - 1 : cell.pos}
     ), cells)
 };
