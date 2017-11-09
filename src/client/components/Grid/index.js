@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Motion, spring }from 'react-motion';
 import PropTypes from 'prop-types';
 import Cell from '../Cell';
 import FakeGrid from '../FakeGrid';

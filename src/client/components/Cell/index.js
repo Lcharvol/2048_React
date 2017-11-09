@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { getColorCell } from '../../selectors';
 import Case from '../Case';
 
 const CellContainer = styled.div`
