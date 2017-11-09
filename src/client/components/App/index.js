@@ -39,13 +39,15 @@ const App = ({ cellsGrid1= [], cellsGrid2 = [], move, playerOne = {}, playerTwo 
     return (
         <Container>
             <EventListener target={document} onKeyDown={move} />
-            <LifeBar player={playerOne}/>
             <GridContainer>
+                <LifeBar player={playerOne}/>
+                <Spacer height="15px"/>
                 <Grid cells={cellsGrid1} player={playerOne}/>
                 <Spacer height="25px"/>
                 <Grid cells={cellsGrid2} player={playerTwo}/>
+                <Spacer height="15px"/>
+                <LifeBar player={playerTwo}/>
             </GridContainer>
-            <LifeBar player={playerTwo}/>
         </Container>
     )
 };
