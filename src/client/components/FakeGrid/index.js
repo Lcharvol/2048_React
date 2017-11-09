@@ -15,7 +15,10 @@ const GridContainer = styled.div`
     grid-template-areas: 'cell_1 cell_2 cell_3 cell_4' 'cell_5 cell_6 cell_7 cell_8'
     'cell_9 cell_10 cell_11 cell_12' 'cell_13 cell_14 cell_15 cell_16';
     z-index:50;
-    background: linear-gradient( 160deg, #92FFC0, #002661  120%);
+    background:  ${({ player }) => player === 1 ?
+        'linear-gradient( 160deg, #92FFC0, #002661  120%)' :
+        'linear-gradient( 160deg, #F05F57, #002661  120%)'
+    };
     border-radius:3px;
     box-shadow: inset 12px 12px 30px rgba(25,25,25, 0.7);
 `;
@@ -36,14 +39,15 @@ const FakeCell = styled.div`
     overflow: hidden;
 `;
 
-const FakeGrid = ({ cells }) => (
-    <GridContainer>
+const FakeGrid = ({ cells, player }) => (
+    <GridContainer player={player.player}>
         {map(cell => <FakeCell key={cell.id} pos={cell.id + 1}/>, cells)}
     </GridContainer>
 );
 
 FakeGrid.propTypes = {
     cells: PropTypes.array.isRequired,
+    player: PropTypes.object.isRequired,
 }
 
 export default FakeGrid;

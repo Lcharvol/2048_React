@@ -44,7 +44,7 @@ const Grid = ({ cells, player }) => (
                 <Cell key={cell.id} player={player} cell={cell} top={(Math.round((cell.pos - 2) / 4) * 90) + 10} left={((cell.pos % 4) * 90) + 10}/>
             ), cells)}
         </GridInner>
-        <FakeGrid cells={cells}/>
+        <FakeGrid cells={cells} player={player}/>
     </GridContainer>
 );
 

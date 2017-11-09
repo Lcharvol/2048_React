@@ -34,7 +34,10 @@ const Life = styled.div`
     display: flex;
     height:100%;
     width:${({ life }) => `${life * 10}%`};;
-    background-color:${({ color }) => color};
+    background:  ${({ player }) => player === 1 ?
+    'linear-gradient( 160deg, #69FF97, #92FFC0  120%)' :
+    'linear-gradient( 160deg, #F6416C, #F05F57  100%)'
+};
     border-radius:3px;
     transition: all 0.3s ease;
 `;
@@ -42,7 +45,7 @@ const Life = styled.div`
 const LifeBar = ({ player }) => (
     <LifeBarContainer >
         <LifeBarInner>
-            <Life life={player.life} color={player.player === 1 ? '#2ecc71' : '#e74c3c'}/>
+            <Life life={player.life} player={player.player}/>
         </LifeBarInner>
     </LifeBarContainer>
 );

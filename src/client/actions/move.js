@@ -9,27 +9,27 @@ export const MOVERIGHTPLAYERTWO = 'MOVERIGHTPLAYERTWO';
 
 export const move = event => (dispatch) => {
     if (event.key === 'ArrowUp') {
-        dispatch(({ type: MOVETOPPLAYERONE }));
-    };
-    if (event.key === 'ArrowDown') {
-        dispatch(({ type: MOVEBOTTOMPLAYERONE }));
-    };
-    if (event.key === 'ArrowLeft') {
-        dispatch(({ type: MOVELEFTPLAYERONE }));
-    };
-    if (event.key === 'ArrowRight') {
-        dispatch(({ type: MOVERIGHTPLAYERONE }));
-    };
-    if (event.key === 'w') {
         dispatch(({ type: MOVETOPPLAYERTWO }));
     };
-    if (event.key === 's') {
+    if (event.key === 'ArrowDown') {
         dispatch(({ type: MOVEBOTTOMPLAYERTWO }));
     };
-    if (event.key === 'a') {
+    if (event.key === 'ArrowLeft') {
         dispatch(({ type: MOVELEFTPLAYERTWO }));
     };
-    if (event.key === 'd') {
+    if (event.key === 'ArrowRight') {
         dispatch(({ type: MOVERIGHTPLAYERTWO }));
+    };
+    if (event.key === 'w') {
+        dispatch(({ type: MOVETOPPLAYERONE }));
+    };
+    if (event.key === 's') {
+        dispatch(({ type: MOVEBOTTOMPLAYERONE }));
+    };
+    if (event.key === 'a') {
+        dispatch(({ type: MOVELEFTPLAYERONE }));
+    };
+    if (event.key === 'd') {
+        dispatch(({ type: MOVERIGHTPLAYERONE }));
     };
 }

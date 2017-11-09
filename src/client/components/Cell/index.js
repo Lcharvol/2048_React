@@ -50,7 +50,7 @@ const Cell = ({ player, cell, top, left }) => {
     }
     return (
         <CellContainer 
-            color={player.player === 1 ? 'rgba(163, 235, 12, 0.4)' : '#ED0000'}
+            color={player.player === 1 ? 'rgba(163, 235, 12, 0.4)' : '#360940'}
             pos={cell.pos} top={top} 
             left={left}
         >
