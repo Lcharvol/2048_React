@@ -22,32 +22,39 @@ const Container = styled.div`
 
 const Spacer = styled.div`
     position:relative;
-    width:${({ width = '100%' }) => width};
+    width:${({ width = '20px' }) => width};
     height:${({ height = 0 }) => height};
 `;
 
-const GridContainer = styled.div`
+const PlayersContainer = styled.div`
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     padding:20px;
     border-radius: 4px;
     background-color:rgb(22,22,22);
     box-shadow: inset 15px 15px 20px rgba(15,15, 15, 0.5);
 `;
 
+const PlayerContainer = styled.div`
+`;
+
 const App = ({ cellsGrid1= [], cellsGrid2 = [], move, playerOne = {}, playerTwo = {} }) => {
     return (
         <Container>
             <EventListener target={document} onKeyDown={move} />
-            <GridContainer>
-                <LifeBar player={playerOne}/>
-                <Spacer height="15px"/>
-                <Grid cells={cellsGrid1} player={playerOne}/>
+            <PlayersContainer>
+                <PlayerContainer>
+                    <LifeBar player={playerOne}/>
+                    <Spacer height="15px"/>
+                    <Grid cells={cellsGrid1} player={playerOne}/>
+                </PlayerContainer>
                 <Spacer height="25px"/>
-                <Grid cells={cellsGrid2} player={playerTwo}/>
-                <Spacer height="15px"/>
-                <LifeBar player={playerTwo}/>
-            </GridContainer>
+                <PlayerContainer>
+                    <LifeBar player={playerTwo}/>
+                    <Spacer height="15px"/>
+                    <Grid cells={cellsGrid2} player={playerTwo}/>
+                </PlayerContainer>
+            </PlayersContainer>
         </Container>
     )
 };
