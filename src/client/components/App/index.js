@@ -6,6 +6,7 @@ import EventListener from 'react-event-listener';
 import { move } from '../../actions/move';
 import PropTypes from 'prop-types';
 import Grid from '../Grid';
+import LifeBar from '../LifeBar';
 
 const Container = styled.div`
     position:relative;
@@ -38,11 +39,13 @@ const App = ({ cellsGrid1= [], cellsGrid2 = [], move, playerOne = {}, playerTwo 
     return (
         <Container>
             <EventListener target={document} onKeyDown={move} />
+            <LifeBar player={playerOne}/>
             <GridContainer>
                 <Grid cells={cellsGrid1} player={playerOne}/>
                 <Spacer height="25px"/>
                 <Grid cells={cellsGrid2} player={playerTwo}/>
             </GridContainer>
+            <LifeBar player={playerTwo}/>
         </Container>
     )
 };
