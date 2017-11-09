@@ -34,22 +34,24 @@ const GridContainer = styled.div`
     box-shadow: inset 15px 15px 20px rgba(15,15, 15, 0.5);
 `;
 
-const App = ({ cellsGrid1= [], cellsGrid2 = [], move }) => {
+const App = ({ cellsGrid1= [], cellsGrid2 = [], move, playerOne = {}, playerTwo = {} }) => {
     return (
         <Container>
             <EventListener target={document} onKeyDown={move} />
             <GridContainer>
-                <Grid cells={cellsGrid1}/>
+                <Grid cells={cellsGrid1} player={playerOne}/>
                 <Spacer height="25px"/>
-                <Grid cells={cellsGrid2}/>
+                <Grid cells={cellsGrid2} player={playerTwo}/>
             </GridContainer>
         </Container>
     )
 };
 
 App.propTypes = {
-    cellsGrid1: PropTypes.array.isRequired,
-    cellsGrid2: PropTypes.array.isRequired,
+    cellsGrid1: PropTypes.array,
+    cellsGrid2: PropTypes.array,
+    playerOne: PropTypes.object,
+    playerTwo: PropTypes.object,
     move: PropTypes.func.isRequired,
 }
 
@@ -58,6 +60,8 @@ const actions = { move };
 const mapStateToProps = state => ({
   cellsGrid1: state.cellsGrid1,
   cellsGrid2: state.cellsGrid2,
+  playerOne: state.playerOne,
+  playerTwo: state.playerTwo,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);

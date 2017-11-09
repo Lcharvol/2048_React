@@ -38,11 +38,11 @@ const GridInner = styled.div`
     box-shadow: inset 15px 15px 15px rgba(25,25,25, 0.3);
 `;
 
-const Grid = ({ cells }) => (
+const Grid = ({ cells, player }) => (
     <GridContainer>
         <GridInner>
             {map(cell => (
-                <Cell key={cell.id} cell={cell} top={(Math.round((cell.pos - 2) / 4) * 90) + 10} left={((cell.pos % 4) * 90) + 10}/>
+                <Cell key={cell.id} player={player} cell={cell} top={(Math.round((cell.pos - 2) / 4) * 90) + 10} left={((cell.pos % 4) * 90) + 10}/>
             ), cells)}
         </GridInner>
         <FakeGrid cells={cells}/>
@@ -51,5 +51,6 @@ const Grid = ({ cells }) => (
 
 Grid.propTypes = {
     cells: PropTypes.array.isRequired,
+    player: PropTypes.object.isRequired,
 }
 export default Grid;

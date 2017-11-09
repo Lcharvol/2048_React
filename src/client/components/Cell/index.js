@@ -13,11 +13,10 @@ const CellContainer = styled.div`
     min-height:22%;
     background-color:#ecf0f1;
     border-radius:2px;
-    box-shadow: 1px 1px 25px rgba(163, 235, 12, 0.4);
+    box-shadow: ${({ color }) => `1px 1px 25px ${color}`};
     font-size:2em;
     width:80px;
     height:80px;
-
     left: ${({ left }) => `${left}px`};
     top: ${({ top }) => `${top}px`};
     transition: all 0.1s ease;
@@ -36,21 +35,33 @@ const Texture = styled.div`
     height:100%;
 `;
 
-const Cell = ({ cell, top, left }) => {
+const Cell = ({ player, cell, top, left }) => {
     if (cell.value === 0) {
         return <EmptyCell/>
     }
     if (cell.value === -1) {
-        return <Case cell={cell} pos={cell.pos} top={top} left={left}/>
+        return (
+            <Case
+                cell={cell}
+                pos={cell.pos}
+                top={top}
+                left={left}
+            />
+        )
     }
     return (
-        <CellContainer pos={cell.pos} top={top} left={left}>
+        <CellContainer 
+            color={player.player === 1 ? 'rgba(163, 235, 12, 0.4)' : '#ED0000'}
+            pos={cell.pos} top={top} 
+            left={left}
+        >
             <Texture />
         </CellContainer>
     )
 };
 
 Cell.propTypes = {
+    player: PropTypes.object.isRequired,
     cell: PropTypes.object.isRequired,
     top: PropTypes.number.isRequired,
     left: PropTypes.number.isRequired,
