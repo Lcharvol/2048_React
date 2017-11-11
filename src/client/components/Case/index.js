@@ -1,4 +1,5 @@
 import React from 'react';
+import caseIcon from '../../../images/case.png';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -18,11 +19,10 @@ const CaseContainer = styled.div`
     left: ${({ left }) => `${left}px`};
     top: ${({ top }) => `${top}px`};
     transition: all 0.1s ease;
-    background: url('https://previews.123rf.com/images/lilu330/lilu3301510/lilu330151000012/47552236-Cartoon-bois-actifs-de-jeux-kit-de-bois-pour-le-d-veloppement-de-jeu-ui-l-ments-vecteur-de-gui-Banque-d%27images.jpg');
-    background-size: 720%;
-    background-position: -39.5px -53px;
+    background: url(${caseIcon});
+    background-size: 103%;
+    background-position: 0px 0px;
     border-radius: 13px;
-    overflow: hidden;
 `;
 
 const Texture = styled.div`

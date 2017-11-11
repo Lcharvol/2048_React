@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Case from '../Case';
+import LifeCell from '../LifeCell';
 
 const CellContainer = styled.div`
     position:absolute;
@@ -43,6 +44,16 @@ const Cell = ({ player, cell, top, left }) => {
             <Case
                 cell={cell}
                 pos={cell.pos}
+                top={top}
+                left={left}
+            />
+        )
+    }
+    if (cell.value === 2) {
+        return (
+            <LifeCell
+                player={player.player}
+                cell={cell}
                 top={top}
                 left={left}
             />
