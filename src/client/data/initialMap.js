@@ -13,7 +13,7 @@ export const cellsGrid1 = [
     },
     {
         id: 2,
-        value: 0,
+        value: 2,
         pos: 2,
     },
     {
@@ -121,7 +121,7 @@ export const cellsGrid2 = [
     },
     {
         id: 7,
-        value: 0,
+        value: 2,
         pos: 7,
     },
     {
