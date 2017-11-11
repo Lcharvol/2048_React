@@ -15,7 +15,7 @@ const isCellFree = (pos, cells) => {
 }
 
 const canMove = (value, pos, cells) => {
-    if (value < 0) {
+    if (value !== 1) {
         return false;
     }
     if (pos < 4 ) {
