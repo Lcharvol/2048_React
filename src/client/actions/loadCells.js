@@ -16,7 +16,10 @@ const getRandomNumber = (min, max) => {
 }
 
 const getRandomStart = cells => {
-    const pos = getRandomNumber(0, 15);
+    let pos = getRandomNumber(0, 15);
+    while (cells[pos].value !== 0) {
+        pos = getRandomNumber(0, 15);
+    }
     const placePlayer = cells => map(cell => {
         if (cell.id === pos) {
             return ({

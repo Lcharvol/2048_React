@@ -29,7 +29,7 @@ const LifeIcon = styled.div`
         '#69FF97' :
         '#F6416C'
     };
-    margin-left:-3px;
+    margin-left:-4px;
     border-radius:100%;
 `;
 
