@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-import cellIcon from '../../images/case.png';
-
-export const CellContainer = styled.div`
+export const LifeCellContainer = styled.div`
     position:absolute;
     display:flex;
     justify-content: center;
@@ -17,17 +15,18 @@ export const CellContainer = styled.div`
     left: ${({ left }) => `${left}px`};
     top: ${({ top }) => `${top}px`};
     transition: all 0.1s ease;
-    background: url(${cellIcon});
-    background-size: 730%;
-    background-position: 235px 282px;
     border-radius: 13px;
     overflow: hidden;
 `;
 
-export const EmptyCell = styled.div`
-`;
-
-export const Texture = styled.div`
-    width:100%;
-    height:100%;
+export const LifeIcon = styled.div`
+    display:flex;
+    width:20px;
+    height:20px;
+    background-color:  ${({ player }) => player === 1 ?
+        '#69FF97' :
+        '#F6416C'
+    };
+    margin-left:-4px;
+    border-radius:100%;
 `;

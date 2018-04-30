@@ -6,13 +6,11 @@ import EventListener from 'react-event-listener';
 
 import {
     Container,
-    Spacer,
     PlayersContainer,
     PlayerContainer,
 } from './styles';
 import { move } from '../../actions/move';
 import Grid from '../Grid';
-import LifeBar from '../LifeBar';
 
 const propTypes = {
     cellsGrid: array,
