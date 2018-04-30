@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import cellIcon from '../../images/case.png';
+import cellIcon from '../../images/case2.png';
 
-export const CellContainer = styled.div`
+export const PlayerCell = styled.div`
     position:absolute;
     display:flex;
     justify-content: center;
@@ -18,16 +18,11 @@ export const CellContainer = styled.div`
     top: ${({ top }) => `${top}px`};
     transition: all 0.1s ease;
     background: url(${cellIcon});
-    background-size: 730%;
-    background-position: 235px 282px;
+    background-size: 100%;
+    background-position: center;
     border-radius: 13px;
     overflow: hidden;
 `;
 
 export const EmptyCell = styled.div`
-`;
-
-export const Texture = styled.div`
-    width:100%;
-    height:100%;
 `;

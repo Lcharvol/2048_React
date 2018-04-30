@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import caseIcon from '../../images/case.png';
+import blockIcon from '../../images/case.png';
 
-export const CaseContainer = styled.div`
+export const BlockContainer = styled.div`
     position:absolute;
     display:flex;
     justify-content: center;
@@ -18,7 +18,7 @@ export const CaseContainer = styled.div`
     left: ${({ left }) => `${left}px`};
     top: ${({ top }) => `${top}px`};
     transition: all 0.1s ease;
-    background: url(${caseIcon});
+    background: url(${blockIcon});
     background-size: 103%;
     background-position: 0px 0px;
     border-radius: 13px;

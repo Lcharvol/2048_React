@@ -18,18 +18,16 @@ const propTypes = {
     move: func.isRequired,
 }
 
-const App = ({ cellsGrid, move, player }) => {
-    return (
-        <Container>
-            <EventListener target={document} onKeyDown={move} />
-            <PlayersContainer>
-                <PlayerContainer>
-                    <Grid cells={cellsGrid} player={player}/>
-                </PlayerContainer>
-            </PlayersContainer>
-        </Container>
-    )
-};
+const App = ({ cellsGrid, move, player }) => (
+    <Container>
+        <EventListener target={document} onKeyDown={move} />
+        <PlayersContainer>
+            <PlayerContainer>
+                <Grid cells={cellsGrid} player={player}/>
+            </PlayerContainer>
+        </PlayersContainer>
+    </Container>
+);
 
 App.propTypes = propTypes;
 

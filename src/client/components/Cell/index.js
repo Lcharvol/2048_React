@@ -1,16 +1,22 @@
 import React from 'react';
+import { equals } from 'ramda';
 import {
     object,
     number,
 } from 'prop-types';
 
-import Case from '../Case';
+import Block from '../Block';
 import LifeCell from '../LifeCell';
 import {
-    CellContainer,
+    PlayerCell,
     EmptyCell,
-    Texture,
 } from './styles';
+import {
+    EMPTY_CELL_VALUE,
+    PLAYER_VALUE,
+    BLOCK_VALUE,
+    LIFE_CELL_VALUE,
+} from './constants';
 
 const propTypes = {
     player: object.isRequired,
@@ -20,20 +26,18 @@ const propTypes = {
 }
 
 const Cell = ({ player, cell, top, left }) => {
-    if (cell.value === 0) {
+    if (equals(cell.value, EMPTY_CELL_VALUE))
         return <EmptyCell/>
-    }
-    if (cell.value === -1) {
+    if (equals(cell.value, BLOCK_VALUE))
         return (
-            <Case
+            <Block
                 cell={cell}
                 pos={cell.pos}
                 top={top}
                 left={left}
             />
         )
-    }
-    if (cell.value === 2) {
+    if (equals(cell.value,  LIFE_CELL_VALUE))
         return (
             <LifeCell
                 player={player.player}
@@ -42,15 +46,13 @@ const Cell = ({ player, cell, top, left }) => {
                 left={left}
             />
         )
-    }
     return (
-        <CellContainer 
-            color={player.player === 1 ? 'rgba(163, 235, 12, 0.4)' : '#360940'}
-            pos={cell.pos} top={top} 
+        <PlayerCell 
+            color={'#360940'}
+            pos={cell.pos}
+            top={top} 
             left={left}
-        >
-            <Texture />
-        </CellContainer>
+        />
     )
 };
 

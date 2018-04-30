@@ -1,35 +1,25 @@
-import { map } from 'ramda';
+import { map, equals, find, propEq } from 'ramda';
 
-const isCellFree = (pos, cells) => {
-    let free = 0;
-    map(cell => {
-        if (cell.pos === pos && cell.value < 0) {
-            free += 1;
-        };
-        return cell;
-    }, cells,)
-    if (free === 0) {
-        return true
-    }
-    return false
-}
+import { isAPlayerCell } from '../utils';
 
-const canMove = (value, pos, cells) => {
-    if (value !== 1) {
-        return false;
-    }
-    if ((pos % 4) === 0) {
-        return false;
-    }
-    if (isCellFree(pos - 1, cells)) {
-        return true;
-    };
-    return false;
+const canMove = (cell, cells) => {
+    const { pos } = cell;
+    if ((pos % 4) === 0) return false;
+    const leftCell = find(propEq('pos', pos - 1), cells);
+    if(leftCell.value === 0) return true;
 };
 
 export const moveLeft = cells => {
-    return map(cell => {
-        const newPos = canMove(cell.value, cell.pos, cells) ? cell.pos-+ 1 : cell.pos;
-        return ({...cell, pos: newPos})
+    let newCells = JSON.parse(JSON.stringify(cells));
+    map(cell => {
+        if(isAPlayerCell(cell)) {
+            if(canMove(cell, cells)) {
+                const { pos } = cell;
+                const leftCell = find(propEq('pos', pos - 1), cells);
+                newCells[cell.id] = {...cells[cell.id], value: 0 };
+                newCells[leftCell.id] = {...cells[leftCell.id], value: 1 };
+            }
+        };
     }, cells)
+    return newCells;
 };
