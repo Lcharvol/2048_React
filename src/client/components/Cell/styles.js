@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import cellIcon from '../../images/case2.png';
+import cellIcon from '../../../images/case2.png';
 
 export const PlayerCell = styled.div`
     position:absolute;

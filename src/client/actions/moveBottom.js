@@ -9,7 +9,7 @@ const canMove = (cell, cells) => {
     if(bottomCell.value === 0) return true;
 };
 
-export const moveBottom = cells => {
+export const moveBottom = ({ cells }) => {
     let newCells = JSON.parse(JSON.stringify(cells));
     map(cell =>  {
         if(isAPlayerCell(cell)) {

@@ -1,4 +1,4 @@
-import { CELLS_GRID_LOADED } from '../actions/loadCells';
+import { LOAD_CELLS_GRID } from '../actions/loadCellsGrid';
 import {
   MOVE_LEFT,
   MOVE_RIGHT,
@@ -10,18 +10,40 @@ import { moveBottom } from '../actions/moveBottom';
 import { moveRight } from '../actions/moveRight';
 import { moveLeft } from '../actions/moveLeft';
 
-const reducer = (state = [], action) => {
+const initialState = {
+  cells:[],
+  lvl: 0,
+  entry: {},
+  exit: {},
+};
+
+const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case CELLS_GRID_LOADED:
-        return action.cellsGrid;
+    case LOAD_CELLS_GRID:
+        return {
+          ...state,
+          cells: action.cells
+        };
     case MOVE_LEFT:
-        return moveLeft(state);
+      return {
+        ...state,
+        cells: moveLeft(state),
+      };
     case MOVE_RIGHT:
-      return moveRight(state);
+      return {
+        ...state,
+        cells: moveRight(state),
+      };
     case MOVE_TOP:
-      return moveTop(state);
+      return {
+        ...state,
+        cells: moveTop(state),
+      };
     case MOVE_BOTTOM:
-      return moveBottom(state);
+      return {
+        ...state,
+        cells: moveBottom(state),
+      };
     default:
       return state;
   }

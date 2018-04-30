@@ -16,7 +16,7 @@ import {
     PLAYER_VALUE,
     BLOCK_VALUE,
     LIFE_CELL_VALUE,
-} from './constants';
+} from '../../constants/cellsvalue';
 
 const propTypes = {
     player: object.isRequired,

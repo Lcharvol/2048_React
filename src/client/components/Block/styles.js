@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import blockIcon from '../../images/case.png';
+import blockIcon from '../../../images/case.png';
 
 export const BlockContainer = styled.div`
     position:absolute;

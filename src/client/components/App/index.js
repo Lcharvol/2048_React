@@ -11,6 +11,7 @@ import {
 } from './styles';
 import { move } from '../../actions/move';
 import Grid from '../Grid';
+import { getCells } from '../../selectors/cellsGrid';
 
 const propTypes = {
     cellsGrid: array,
@@ -34,7 +35,7 @@ App.propTypes = propTypes;
 const actions = { move };
 
 const mapStateToProps = state => ({
-  cellsGrid: state.cellsGrid,
+  cellsGrid: getCells(state),
   player: state.player,
 });
 
