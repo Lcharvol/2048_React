@@ -16,8 +16,8 @@ export const moveRight = cells => {
             if(canMove(cell, cells)) {
                 const { pos } = cell;
                 const rightCell = find(propEq('pos', pos + 1), cells);
-                newCells[cell.id] = {...cells[cell.id], value: 0 };
-                newCells[rightCell.id] = {...cells[rightCell.id], value: 1 };
+                newCells[cell.id] = {...cells[cell.id], pos: rightCell.pos };
+                newCells[rightCell.id] = {...cells[rightCell.id], pos};
             }
         };
     }, cells)

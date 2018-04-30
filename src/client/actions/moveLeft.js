@@ -16,8 +16,8 @@ export const moveLeft = cells => {
             if(canMove(cell, cells)) {
                 const { pos } = cell;
                 const leftCell = find(propEq('pos', pos - 1), cells);
-                newCells[cell.id] = {...cells[cell.id], value: 0 };
-                newCells[leftCell.id] = {...cells[leftCell.id], value: 1 };
+                newCells[cell.id] = {...cells[cell.id], pos: leftCell.pos };
+                newCells[leftCell.id] = {...cells[leftCell.id], pos };
             }
         };
     }, cells)

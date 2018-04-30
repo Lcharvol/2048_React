@@ -16,8 +16,8 @@ export const moveTop = cells => {
             if(canMove(cell, cells)) {
                 const { pos } = cell;
                 const topCell = find(propEq('pos', pos - 4), cells);
-                newCells[cell.id] = {...cells[cell.id], value: 0 };
-                newCells[topCell.id] = {...cells[topCell.id], value: 1 };
+                newCells[cell.id] = {...cells[cell.id], pos: topCell.pos };
+                newCells[topCell.id] = {...cells[topCell.id], pos };
             }
         };
     }, cells)
