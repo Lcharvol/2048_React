@@ -1,10 +1,5 @@
-export const UPDATE_LIFE_PLAYERONE = 'UPDATE_LIFE_PLAYERONE';
-export const UPDATE_LIFE_PLAYERTWO = 'UPDATE_LIFE_PLAYERTWO';
+export const UPDATE_LIFE_PLAYER = 'UPDATE_LIFE_PLAYER';
 
-export const updateLifePlayerOne = life => (dispatch) => {
-    dispatch({ type: UPDATE_LIFE_PLAYERONE, life });
-};
-
-export const updateLifePlayerTwo = life => (dispatch) => {
-    dispatch({ type: UPDATE_LIFE_PLAYERTWO, life });
+export const updateLifePlayer = life => (dispatch) => {
+    dispatch({ type: UPDATE_LIFE_PLAYER, life });
 };

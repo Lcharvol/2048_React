@@ -1,15 +1,9 @@
 import { map } from 'ramda';
-export const CELLSGRIDONELOADED = 'CELLSGRIDONELOADED';
-export const CELLSGRIDTWOLOADED = 'CELLSGRIDTWOLOADED';
+export const CELLS_GRID_LOADED = 'CELLS_GRID_LOADED';
 
-export const cellsLoadedGrid1 = cellsGrid1 => (dispatch) => {
-    dispatch({ type: CELLSGRIDONELOADED, cellsGrid1 });
+export const loadCellsGrid = cellsGrid => (dispatch) => {
+    dispatch({ type: CELLS_GRID_LOADED, cellsGrid });
 }
-
-export const cellsLoadedGrid2 = cellsGrid2 => (dispatch) => {
-    dispatch({ type: CELLSGRIDTWOLOADED, cellsGrid2 });
-}
-
 const getRandomNumber = (min, max) => {
     let random = Math.round(min + (Math.random() * (max-min)));
     return random;
@@ -32,8 +26,3 @@ const getRandomStart = cells => {
     },cells)
     return placePlayer(cells);
 }
-
-export const loadCellsGrids = (cellsGrid1, cellsGrid2) => dispatch => {
-    dispatch(cellsLoadedGrid1(getRandomStart(cellsGrid1)));
-    dispatch(cellsLoadedGrid2(getRandomStart(cellsGrid2)));
-};

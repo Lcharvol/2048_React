@@ -2,9 +2,9 @@ import React from 'react';
 import configureStore from './store';
 import App from './components/App';
 import { Provider } from 'react-redux';
-import { loadCellsGrids } from './actions/loadCells';
-import { initPlayers } from './actions/initPlayers';
-import { cellsGrid1, cellsGrid2 } from './data/initialMap';
+import { loadCellsGrid } from './actions/loadCells';
+import { initPlayer } from './actions/initPlayers';
+import { cellsGrid } from './data/initialMap';
 import './index.css';
 
 const initialState = {
@@ -12,8 +12,8 @@ const initialState = {
 
 const store = configureStore(initialState);
 
-store.dispatch(loadCellsGrids(cellsGrid1, cellsGrid2));
-store.dispatch(initPlayers());
+store.dispatch(loadCellsGrid(cellsGrid));
+store.dispatch(initPlayer());
 
 export const root = (
   <Provider store={store}>
