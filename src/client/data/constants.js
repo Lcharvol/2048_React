@@ -1,0 +1,1 @@
+export const INITIAL_MAP_SIZE = 16;

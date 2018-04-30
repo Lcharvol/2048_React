@@ -12,7 +12,7 @@ const initialState = {
 
 const store = configureStore(initialState);
 
-store.dispatch(loadCellsGrid(cellsGrid));
+store.dispatch(loadCellsGrid(cellsGrid()));
 store.dispatch(initPlayer());
 
 export const root = (

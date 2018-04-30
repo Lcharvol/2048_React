@@ -1,13 +1,10 @@
 import { map } from 'ramda';
+import { getRandomNumber } from '../utils';
 export const CELLS_GRID_LOADED = 'CELLS_GRID_LOADED';
 
 export const loadCellsGrid = cellsGrid => (dispatch) => {
     dispatch({ type: CELLS_GRID_LOADED, cellsGrid });
-}
-const getRandomNumber = (min, max) => {
-    let random = Math.round(min + (Math.random() * (max-min)));
-    return random;
-}
+};
 
 const getRandomStart = cells => {
     let pos = getRandomNumber(0, 15);

@@ -26,8 +26,6 @@ const App = ({ cellsGrid, move, player }) => {
             <EventListener target={document} onKeyDown={move} />
             <PlayersContainer>
                 <PlayerContainer>
-                    <LifeBar player={player}/>
-                    <Spacer height="15px"/>
                     <Grid cells={cellsGrid} player={player}/>
                 </PlayerContainer>
             </PlayersContainer>
