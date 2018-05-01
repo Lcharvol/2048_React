@@ -4,12 +4,8 @@ export const GridContainer = styled.div`
     display:flex;
     justify-content:center;
     align-items:center;
-    width:400px;
-    height:400px;
-    max-width:400px;
-    max-height:400px;
-    min-width:400px;
-    min-height:400px;
+    width:${({ size }) => size}px;
+    height:${({ size }) => size}px;
     border-radius:4px;
     background-color:rgb(25,25,25);
     box-shadow: 12px 12px 30px rgba(25,25,25, 0.4);
@@ -21,10 +17,8 @@ export const GridContainer = styled.div`
 
 export const GridInner = styled.div`
     position:relative;
-    display: grid;
-    width:350px;
-    height:350px;
-    grid-gap: 11px;
+    width:${({ size }) => size}px;
+    height:${({ size }) => size}px;
     padding:10px;
     z-index:100;
     transition: all 0.5s ease-in;

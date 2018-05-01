@@ -7,7 +7,8 @@ import {
 
 import Cell from '../Cell';
 import FakeGrid from '../FakeGrid';
-
+import { MAP_SIZE, CELL_SIZE, CELL_MARGIN } from '../../constants/map';
+import { getGridTemplateAreas, getGridSize } from '../../utils';
 import {
     GridContainer,
     GridInner,
@@ -19,10 +20,16 @@ const propTypes = {
 }
 
 const Grid = ({ cells, player }) => (
-    <GridContainer>
-        <GridInner>
+    <GridContainer size={getGridSize() + 50}>
+        <GridInner template={getGridTemplateAreas()} size={getGridSize()}>
             {map(cell => (
-                <Cell key={cell.id} player={player} cell={cell} top={(Math.round((cell.pos - 2) / 4) * 90) + 10} left={((cell.pos % 4) * 90) + 10}/>
+                <Cell
+                    key={cell.id}
+                    player={player}
+                    cell={cell}
+                    top={(Math.round((cell.pos - 2) / MAP_SIZE) * CELL_SIZE) + CELL_MARGIN}
+                    left={((cell.pos % MAP_SIZE) * CELL_SIZE) + CELL_MARGIN}
+                />
             ), cells)}
         </GridInner>
         <FakeGrid cells={cells} player={player}/>

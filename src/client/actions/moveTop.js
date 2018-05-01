@@ -1,11 +1,12 @@
 import { map, equals, find, propEq } from 'ramda';
 
 import { isAPlayerCell } from '../utils';
+import { MAP_SIZE } from '../constants/map';
 
 const canMove = (cell, cells) => {
     const { pos } = cell;
-    if (pos < 4) return false;
-    const topCell = find(propEq('pos', pos - 4), cells);
+    if (pos < MAP_SIZE) return false;
+    const topCell = find(propEq('pos', pos - MAP_SIZE), cells);
     if(topCell.value === 0) return true;
 };
 
@@ -15,7 +16,7 @@ export const moveTop = ({ cells }) => {
         if(isAPlayerCell(cell)) {
             if(canMove(cell, cells)) {
                 const { pos } = cell;
-                const topCell = find(propEq('pos', pos - 4), cells);
+                const topCell = find(propEq('pos', pos - MAP_SIZE), cells);
                 newCells[cell.id] = {...cells[cell.id], pos: topCell.pos };
                 newCells[topCell.id] = {...cells[topCell.id], pos };
             }
