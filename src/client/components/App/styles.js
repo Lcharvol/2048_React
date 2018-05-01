@@ -5,8 +5,7 @@ import { getGridSize } from '../../utils';
 export const Container = styled.div`
     position:relative;
     display:grid;
-    grid-template-areas: 'grid_0 grid_1 grid_2' 'grid_3 grid_4 grid_5' 'grid_6 grid_7 grid_8';
-    background-color:rgb(25,25,25);
+    grid-template-areas: ${({ template }) => template};
 `;
 
 export const Spacer = styled.div`
@@ -27,6 +26,7 @@ export const MainGridContainer = styled.div`
     box-shadow: inset 15px 15px 20px rgba(15,15, 15, 0.5);
     z-index:10;
     grid-area:${({ gridArea }) => gridArea};
+    transition-delay:1s;
 `;
 
 export const HiddenGridContainer = styled.div`
@@ -52,4 +52,6 @@ export const Map = styled.div`
     width:100vw;
     height:100vh;
     overflow:hidden;
+    opacity:${({ displayMap }) => displayMap ? 1 : 0};
+    transition: all 0.5s ease;
 `;
