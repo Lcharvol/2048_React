@@ -13,7 +13,6 @@ import {
 } from './styles';
 import {
     EMPTY_CELL_VALUE,
-    PLAYER_VALUE,
     BLOCK_VALUE,
     LIFE_CELL_VALUE,
 } from '../../constants/cellsvalue';

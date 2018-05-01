@@ -15,7 +15,7 @@ export const getGridTemplateAreas = () => {
     times(i => {
         let str = '';
         times(i2 => str += `cell_${(i * MAP_SIZE) + i2 + 1} `,MAP_SIZE);
-        templateTab = [...templateTab, `\'${str}\'`];
+        templateTab = [...templateTab, `'${str}'`];
     },MAP_SIZE);
     const templateString = join(' ', templateTab);
     return templateString;

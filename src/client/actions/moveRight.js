@@ -1,4 +1,4 @@
-import { map, equals, find, propEq } from 'ramda';
+import { map, find, propEq } from 'ramda';
 
 import { isAPlayerCell } from '../utils';
 import { MAP_SIZE } from '../constants/map';
