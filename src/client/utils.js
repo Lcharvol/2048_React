@@ -21,4 +21,4 @@ export const getGridTemplateAreas = () => {
     return templateString;
 };
 
-export const getGridSize = () => MAP_SIZE * (CELL_SIZE + CELL_MARGIN);
+export const getGridSize = () => (MAP_SIZE * (CELL_SIZE + CELL_MARGIN)) - CELL_MARGIN;

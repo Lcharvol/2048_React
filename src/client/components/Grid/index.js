@@ -27,8 +27,8 @@ const Grid = ({ cells, player }) => (
                     key={cell.id}
                     player={player}
                     cell={cell}
-                    top={(Math.round((cell.pos - 2) / MAP_SIZE) * CELL_SIZE) + CELL_MARGIN}
-                    left={((cell.pos % MAP_SIZE) * CELL_SIZE) + CELL_MARGIN}
+                    top={(Math.round((cell.pos - 2) / MAP_SIZE) * (CELL_SIZE + CELL_MARGIN)) + 10}
+                    left={((cell.pos % MAP_SIZE) * (CELL_SIZE + CELL_MARGIN)) + 10}
                 />
             ), cells)}
         </GridInner>

@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
+import { CELL_MARGIN } from '../../constants/map';
+
 export const GridContainer = styled.div`
     display: grid;
     position:absolute;
     width:${({ size }) => `${size}px`};
     height:${({ size }) => `${size}px`};
-    grid-gap: 11px;
+    grid-gap: ${CELL_MARGIN}px;
     padding:10px;
     grid-template-areas: ${({ template }) => template};
     z-index:50;
