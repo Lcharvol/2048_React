@@ -7,5 +7,5 @@ How to use:
   - open http://localhost:3000/
 
 <div style="position:relative; margin:auto;text-align:center; width:100%;">
-  <img src="https://user-images.githubusercontent.com/23408500/32629131-741febfc-c598-11e7-992b-19e0aed8e26f.png"/>
+  <img src="https://user-images.githubusercontent.com/23408500/39475569-fbe41160-4d58-11e8-8170-0013a336367c.png"/>
 </div>
