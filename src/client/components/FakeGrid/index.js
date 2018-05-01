@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { array, object } from 'prop-types';
 import { map } from 'ramda';
 
 import { getGridTemplateAreas, getGridSize } from '../../utils';
@@ -8,19 +8,22 @@ import {
     FakeCell,
 } from './styles'
 
-const FakeGrid = ({ cells, player }) => (
+const propTypes = {
+    cells: array.isRequired,
+    player: object.isRequired,
+}
+
+const FakeGrid = ({ cells, player, color }) => (
     <GridContainer
         template={getGridTemplateAreas()}
         size={getGridSize()}
         player={player.player}
-    >
+        color={color}
+    >   
         {map(cell => <FakeCell key={cell.id} pos={cell.id + 1} value={cell.value}/>, cells)}
     </GridContainer>
 );
 
-FakeGrid.propTypes = {
-    cells: PropTypes.array.isRequired,
-    player: PropTypes.object.isRequired,
-}
+FakeGrid.propTypes = propTypes;
 
 export default FakeGrid;

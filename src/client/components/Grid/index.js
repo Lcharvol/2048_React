@@ -3,6 +3,7 @@ import { map } from 'ramda';
 import {
     array,
     object,
+    string,
 } from 'prop-types';
 
 import Cell from '../Cell';
@@ -16,10 +17,11 @@ import {
 
 const propTypes = {
     cells: array.isRequired,
-    player: object.isRequired,
+    player: object,
+    color: string,
 }
 
-const Grid = ({ cells, player }) => (
+const Grid = ({ cells, player = {}, color}) => (
     <GridContainer size={getGridSize() + 50}>
         <GridInner template={getGridTemplateAreas()} size={getGridSize()}>
             {map(cell => (
@@ -32,7 +34,7 @@ const Grid = ({ cells, player }) => (
                 />
             ), cells)}
         </GridInner>
-        <FakeGrid cells={cells} player={player}/>
+        <FakeGrid cells={cells} player={player} color={color} />
     </GridContainer>
 );
 

@@ -11,12 +11,10 @@ export const GridContainer = styled.div`
     padding:10px;
     grid-template-areas: ${({ template }) => template};
     z-index:50;
-    background:  ${({ player }) => player === 1 ?
-        'linear-gradient( 160deg, #92FFC0, #002661  120%)' :
-        'linear-gradient( 160deg, #F05F57, #002661  120%)'
-    };
+    background: ${({ color }) => color};
     border-radius:3px;
     box-shadow: inset 12px 12px 30px rgba(25,25,25, 0.7);
+    opacity:0.9;
 `;
 
 export const FakeCell = styled.div`
