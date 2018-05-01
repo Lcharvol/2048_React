@@ -47,7 +47,7 @@ const Cell = ({ player, cell, top, left }) => {
         )
     return (
         <PlayerCell 
-            color={'#360940'}
+            color={'rgba(0,0,0,0.4)'}
             pos={cell.pos}
             top={top} 
             left={left}

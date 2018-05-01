@@ -12,6 +12,7 @@ const generateIntitiMap = () => {
             id: i,
             cellsGrid: generateNewCells(),
             color: getRandomGradient(),
+            gates: [],
         }]
     },INITIAL_MAP_SIZE)
     initialMap = generateGates(initialMap);
