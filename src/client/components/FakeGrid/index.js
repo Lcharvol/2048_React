@@ -15,7 +15,7 @@ const FakeGrid = ({ cells, player }) => (
         size={getGridSize()}
         player={player.player}
     >
-        {map(cell => <FakeCell key={cell.id} pos={cell.id + 1}/>, cells)}
+        {map(cell => <FakeCell key={cell.id} pos={cell.id + 1} value={cell.value}/>, cells)}
     </GridContainer>
 );
 

@@ -6,8 +6,9 @@ import EventListener from 'react-event-listener';
 
 import {
     Container,
-    PlayersContainer,
-    PlayerContainer,
+    MainGridContainer,
+    HiddenGridContainer,
+    Map,
 } from './styles';
 import { move } from '../../actions/move';
 import Grid from '../Grid';
@@ -20,14 +21,38 @@ const propTypes = {
 }
 
 const App = ({ cellsGrid, move, player }) => (
-    <Container>
-        <EventListener target={document} onKeyDown={move} />
-        <PlayersContainer>
-            <PlayerContainer>
+    <Map>
+        <Container>
+            <EventListener target={document} onKeyDown={move} />
+            <HiddenGridContainer gridArea="grid_0">
                 <Grid cells={cellsGrid} player={player}/>
-            </PlayerContainer>
-        </PlayersContainer>
-    </Container>
+            </HiddenGridContainer>
+            <HiddenGridContainer gridArea="grid_1">
+                <Grid cells={cellsGrid} player={player}/>
+            </HiddenGridContainer>
+            <HiddenGridContainer gridArea="grid_2">
+                <Grid cells={cellsGrid} player={player}/>
+            </HiddenGridContainer>
+            <HiddenGridContainer gridArea="grid_3">
+                <Grid cells={cellsGrid} player={player}/>
+            </HiddenGridContainer>
+            <MainGridContainer gridArea="grid_4">
+                <Grid cells={cellsGrid} player={player}/>
+            </MainGridContainer>
+            <HiddenGridContainer gridArea="grid_5">
+                <Grid cells={cellsGrid} player={player}/>
+            </HiddenGridContainer>
+            <HiddenGridContainer gridArea="grid_6">
+                <Grid cells={cellsGrid} player={player}/>
+            </HiddenGridContainer>
+            <HiddenGridContainer gridArea="grid_7">
+                <Grid cells={cellsGrid} player={player}/>
+            </HiddenGridContainer>
+            <HiddenGridContainer gridArea="grid_8">
+                <Grid cells={cellsGrid} player={player}/>
+            </HiddenGridContainer>
+        </Container>
+    </Map>
 );
 
 App.propTypes = propTypes;
