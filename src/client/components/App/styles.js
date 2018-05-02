@@ -54,4 +54,5 @@ export const Shadow = styled.div`
     border-radius: 4px;
     background-color:${({ isActive }) => isActive ? 'rgba(0,0,0,0)' : 'rgba(0,0,0,0.6)'};
     z-index: 1000;
+    transition: all 1s;
 `;
