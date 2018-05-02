@@ -14,7 +14,6 @@ import {
 } from './styles';
 import { move } from '../../actions/move';
 import Grid from '../Grid';
-import { getCells } from '../../selectors/cellsGrid';
 import { getMap, getActiveGrid } from '../../selectors/map';
 import { INITIAL_MAP_SIZE } from '../../MapGenerator/constants';
 import { getMapTemplateAreas } from '../../utils';

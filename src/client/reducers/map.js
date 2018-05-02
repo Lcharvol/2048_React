@@ -5,7 +5,6 @@ import {
   MOVE_BOTTOM,
 } from '../actions/move';
 import { INIT_MAP } from '../actions/map';
-import { INITIAL_MAP_SIZE } from '../MapGenerator/constants';
 
 import { moveTop } from '../actions/moveTop';
 import { moveBottom } from '../actions/moveBottom';

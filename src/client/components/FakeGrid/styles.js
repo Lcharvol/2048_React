@@ -14,7 +14,6 @@ export const GridContainer = styled.div`
     background: ${({ color }) => color};
     border-radius:3px;
     box-shadow: inset 12px 12px 30px rgba(25,25,25, 0.7);
-    opacity:0.9;
 `;
 
 export const FakeCell = styled.div`

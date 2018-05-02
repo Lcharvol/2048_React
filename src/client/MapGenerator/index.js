@@ -5,6 +5,8 @@ import { generateNewCells } from '../RoomGenerator/generate';
 import { getRandomGradient } from '../colors';
 import { generateGates } from './gates';
 
+const isActiveGrid = i => i === Math.ceil((INITIAL_MAP_SIZE / 2) - 1) ? true : false
+
 const generateIntitiMap = () => {
     let initialMap = [];
     times(i => {
@@ -13,7 +15,8 @@ const generateIntitiMap = () => {
             cellsGrid: generateNewCells(false),
             color: getRandomGradient(),
             gates: [],
-            active: i === Math.ceil((INITIAL_MAP_SIZE / 2) - 1) ? true : false,
+            active: isActiveGrid(i),
+            pos: i,
         }]
     },INITIAL_MAP_SIZE)
     initialMap = generateGates(initialMap);
