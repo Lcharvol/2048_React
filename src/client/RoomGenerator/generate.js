@@ -36,7 +36,7 @@ export const generateNewCells = () => {
     let cells = [];
     times(i => cells = [...cells, { id: i, value: 0, pos: i }], (MAP_SIZE * MAP_SIZE))
     cells = compose(
-        addRandomBlocks(6),
+        addRandomBlocks(4),
         addPlayer,
     )(cells);
     const entry = getNewEntry(cells);

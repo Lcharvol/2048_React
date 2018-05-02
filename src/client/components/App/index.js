@@ -8,15 +8,16 @@ import { compose, withStateHandlers, lifecycle } from 'recompose';
 
 import {
     Container,
-    MainGridContainer,
+    GridContainer,
     HiddenGridContainer,
     Map,
+    Shadow,
 } from './styles';
 import { move } from '../../actions/move';
 import Grid from '../Grid';
 import { getMap, getActiveGrid } from '../../selectors/map';
 import { INITIAL_MAP_SIZE } from '../../MapGenerator/constants';
-import { getMapTemplateAreas } from '../../utils';
+import { getMapTemplateAreas, getGridWidth } from '../../utils';
 
 const propTypes = {
     cellsGrid: array,
@@ -34,24 +35,21 @@ const App = ({
     displayMap,
 }) => (
     <Map displayMap={displayMap} >
-        <Container template={getMapTemplateAreas()}>
+        <Container>
             <EventListener target={document} onKeyDown={move} />
-            {map(grid => {
-                if(grid.id === 4) {
-                    return  (
-                        <MainGridContainer key={grid.id} gridArea={`grid_${Math.round(INITIAL_MAP_SIZE / 2) - 1}`}>
-                            <Grid cells={cellsGrid} player={player} color={grid.color} />
-                        </MainGridContainer>
-                    )
-                } else {
-                    return (
-                        <HiddenGridContainer key={grid.id} gridArea={`grid_${grid.id}`}>
-                            <Grid cells={grid.cellsGrid.cells} color={grid.color} />
-                        </HiddenGridContainer>
-                    )
-                }
-            }
-            ,mapItem)}
+            {map(grid => (
+                    <GridContainer
+                        key={grid.id}
+                        position={grid.pos}
+                        top={(Math.floor(grid.pos / Math.sqrt(INITIAL_MAP_SIZE)) * getGridWidth())}
+                        left={((grid.pos % Math.sqrt(INITIAL_MAP_SIZE))) * getGridWidth()}
+                    >
+                            <Shadow
+                                isActive={grid.active}
+                            />
+                            <Grid cells={grid.cellsGrid.cells} player={grid.active ? player : undefined} color={grid.color} />
+                    </GridContainer>
+                ),mapItem)}
         </Container>
     </Map>
 );

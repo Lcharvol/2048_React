@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const GridContainer = styled.div`
-    position:relative;
+    position:absolute;
     display:flex;
     justify-content:center;
     align-items:center;

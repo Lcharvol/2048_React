@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 
-import { getGridSize } from '../../utils';
+import { getGridSize, getGridWidth } from '../../utils';
+import { INITIAL_MAP_SIZE } from '../../MapGenerator/constants';
 
 export const Container = styled.div`
-    position:relative;
-    display:grid;
-    grid-template-areas: ${({ template }) => template};
+    position:absolute;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:${Math.sqrt(INITIAL_MAP_SIZE) * getGridWidth()}px;
+    height:${Math.sqrt(INITIAL_MAP_SIZE) * getGridWidth()}px;
 `;
 
 export const Spacer = styled.div`
@@ -14,8 +18,10 @@ export const Spacer = styled.div`
     height:${({ height = 0 }) => height};
 `;
 
-export const MainGridContainer = styled.div`
-    position:relative;
+export const GridContainer = styled.div`
+    position:absolute;
+    left: ${({ left }) => `${left}px`};
+    top: ${({ top }) => `${top}px`};
     display:flex;
     flex-direction: row;
     padding:5px;
@@ -24,24 +30,8 @@ export const MainGridContainer = styled.div`
     border-radius: 4px;
     background-color:rgb(22,22,22);
     box-shadow: inset 15px 15px 20px rgba(15,15, 15, 0.5);
-    z-index:10;
-    grid-area:${({ gridArea }) => gridArea};
-    transition-delay:1s;
-`;
-
-export const HiddenGridContainer = styled.div`
-    position:relative;
-    display:flex;
-    flex-direction: row;
-    width:${getGridSize() + 50}px;
-    height:${getGridSize() + 50}px;
-    padding:5px;
-    border-radius: 4px;
-    background-color:rgb(22,22,22);
-    box-shadow: inset 15px 15px 20px rgba(15,15, 15, 0.5);
-    opacity:0.3;
-    z-index:5;
-    grid-area: ${({ gridArea }) => gridArea};
+    transition: all 1s;
+    z-index: ${({ position }) => position};
 `;
 
 export const Map = styled.div`
@@ -54,4 +44,14 @@ export const Map = styled.div`
     overflow:hidden;
     opacity:${({ displayMap }) => displayMap ? 1 : 0};
     transition: all 0.5s ease;
+`;
+
+export const Shadow = styled.div`
+    position:relative;
+    padding:5px;
+    min-width:${getGridSize() + 50}px;
+    min-height:${getGridSize() + 50}px;
+    border-radius: 4px;
+    background-color:${({ isActive }) => isActive ? 'rgba(0,0,0,0)' : 'rgba(0,0,0,0.6)'};
+    z-index: 1000;
 `;

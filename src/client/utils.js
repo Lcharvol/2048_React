@@ -34,3 +34,5 @@ export const getMapTemplateAreas = () => {
 };
 
 export const getGridSize = () => (MAP_SIZE * (CELL_SIZE + CELL_MARGIN)) - CELL_MARGIN;
+
+export const getGridWidth = () => getGridSize() + 65;
