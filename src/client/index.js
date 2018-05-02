@@ -13,8 +13,7 @@ const initialState = {
 
 const store = configureStore(initialState);
 
-store.dispatch(loadCellsGrid(generateNewCells()));
-store.dispatch(initPlayer());
+// store.dispatch(loadCellsGrid(generateNewCells()));
 store.dispatch(initPlayer());
 store.dispatch(getInitialMap());
 

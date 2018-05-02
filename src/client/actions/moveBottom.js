@@ -10,17 +10,20 @@ const canMove = (cell, cells) => {
     if(bottomCell.value === 0) return true;
 };
 
-export const moveBottom = ({ cells }) => {
-    let newCells = JSON.parse(JSON.stringify(cells));
+export const moveBottom = ({ map: oldMap }) => {
+    let newMap = JSON.parse(JSON.stringify(oldMap));
+    const activeMapId = find(propEq('active', true), newMap).id;
+    const grid = newMap[activeMapId];
+    const { cellsGrid: { cells }, id }= grid;
     map(cell =>  {
         if(isAPlayerCell(cell)) {
             if(canMove(cell, cells)) {
                 const { pos } = cell;
                 const bottomCell = find(propEq('pos', pos + MAP_SIZE), cells);
-                newCells[cell.id] = {...cells[cell.id], pos: bottomCell.pos };
-                newCells[bottomCell.id] = {...cells[bottomCell.id], pos };
+                newMap[id].cellsGrid.cells[cell.id] = {...cells[cell.id], pos: bottomCell.pos };
+                newMap[id].cellsGrid.cells[bottomCell.id] = {...cells[bottomCell.id], pos };
             }
         };
     }, cells)
-    return newCells;
+    return newMap;
 };

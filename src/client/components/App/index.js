@@ -15,7 +15,7 @@ import {
 import { move } from '../../actions/move';
 import Grid from '../Grid';
 import { getCells } from '../../selectors/cellsGrid';
-import { getMap } from '../../selectors/map';
+import { getMap, getActiveGrid } from '../../selectors/map';
 import { INITIAL_MAP_SIZE } from '../../MapGenerator/constants';
 import { getMapTemplateAreas } from '../../utils';
 
@@ -62,7 +62,7 @@ App.propTypes = propTypes;
 const actions = { move };
 
 const mapStateToProps = state => ({
-  cellsGrid: getCells(state),
+  cellsGrid: getActiveGrid(state),
   player: state.player,
   mapItem: getMap(state),
 });

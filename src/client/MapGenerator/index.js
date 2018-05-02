@@ -10,9 +10,10 @@ const generateIntitiMap = () => {
     times(i => {
         initialMap = [...initialMap, {
             id: i,
-            cellsGrid: generateNewCells(),
+            cellsGrid: generateNewCells(false),
             color: getRandomGradient(),
             gates: [],
+            active: i === Math.ceil((INITIAL_MAP_SIZE / 2) - 1) ? true : false,
         }]
     },INITIAL_MAP_SIZE)
     initialMap = generateGates(initialMap);
