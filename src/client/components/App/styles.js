@@ -30,7 +30,7 @@ export const GridContainer = styled.div`
     border-radius: 4px;
     background-color:rgb(22,22,22);
     box-shadow: inset 15px 15px 20px rgba(15,15, 15, 0.5);
-    transition: all 1s;
+    transition: all 0.2s ease-in-out;
     z-index: ${({ position }) => position};
 `;
 

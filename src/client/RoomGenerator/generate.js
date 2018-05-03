@@ -32,13 +32,14 @@ const addRandomBlocks = nb => grid => {
     return grid;
 }
 
-export const generateNewCells = () => {
+export const generateNewCells = (getPlayer = false) => {
     let cells = [];
     times(i => cells = [...cells, { id: i, value: 0, pos: i }], (MAP_SIZE * MAP_SIZE))
     cells = compose(
         addRandomBlocks(4),
-        addPlayer,
     )(cells);
+    if(getPlayer)
+        cells = addPlayer(cells);
     const entry = getNewEntry(cells);
     return {
         cells,

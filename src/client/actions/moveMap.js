@@ -8,10 +8,10 @@ export const moveMapTop = ({ map: oldMap }) => {
     let newMap = JSON.parse(JSON.stringify(oldMap));
     const newActiveGridPos = find(propEq('active', true), newMap).pos + Math.sqrt(INITIAL_MAP_SIZE);
     map(grid => {
-        let newPos = grid.pos + 3;
+        let newPos = grid.pos + Math.sqrt(INITIAL_MAP_SIZE);
         if(newPos >= INITIAL_MAP_SIZE) {
             newMap = filter(g => g.id !== grid.id, newMap);
-            newMap = addNewGrid(grid.id, grid.pos - 6, newMap);
+            newMap = addNewGrid(grid.id, grid.pos - 20, newMap);
         }
         else {
             newMap[findIndex(propEq('id', grid.id))(newMap)] = {
@@ -32,7 +32,7 @@ export const moveMapBottom = ({ map: oldMap }) => {
         let newPos = grid.pos - (Math.sqrt(INITIAL_MAP_SIZE));
         if(newPos < 0) {
             newMap = filter(g => g.id !== grid.id, newMap);
-            newMap = addNewGrid(grid.id, grid.pos + 6, newMap);
+            newMap = addNewGrid(grid.id, grid.pos + 20, newMap);
         }
         else {
             newMap[findIndex(propEq('id', grid.id))(newMap)] = {
@@ -51,7 +51,7 @@ export const moveMapLeft = ({ map: oldMap }) => {
     const newActiveGridPos = find(propEq('active', true), newMap).pos + Math.sqrt(INITIAL_MAP_SIZE);
     map(grid => {
         let newPos = grid.pos + 1;
-        if(grid.pos % Math.sqrt(INITIAL_MAP_SIZE) === 2) {
+        if(grid.pos % Math.sqrt(INITIAL_MAP_SIZE) === Math.sqrt(INITIAL_MAP_SIZE) - 1) {
             newMap = filter(g => g.id !== grid.id, newMap);
             newMap = addNewGrid(grid.id, grid.pos - (Math.sqrt(INITIAL_MAP_SIZE) - 1), newMap);
         }

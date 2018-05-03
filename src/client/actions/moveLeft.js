@@ -1,4 +1,4 @@
-import { map, find, propEq } from 'ramda';
+import { map, find, propEq, findIndex } from 'ramda';
 
 import { isAPlayerCell } from '../utils';
 import { MAP_SIZE } from '../constants/map';
@@ -12,7 +12,7 @@ const canMove = (cell, cells) => {
 
 export const moveLeft = ({ map: oldMap }) => {
     let newMap = JSON.parse(JSON.stringify(oldMap));
-    const activeMapId = find(propEq('active', true), newMap).id;
+    const activeMapId = findIndex(propEq('active', true))(newMap);
     const grid = newMap[activeMapId];
     const { cellsGrid: { cells }, id }= grid;
     map(cell => {
@@ -20,8 +20,8 @@ export const moveLeft = ({ map: oldMap }) => {
             if(canMove(cell, cells)) {
                 const { pos } = cell;
                 const leftCell = find(propEq('pos', pos - 1), cells);
-                newMap[id].cellsGrid.cells[cell.id] = {...cells[cell.id], pos: leftCell.pos };
-                newMap[id].cellsGrid.cells[leftCell.id] = {...cells[leftCell.id], pos };
+                newMap[activeMapId].cellsGrid.cells[cell.id] = {...cells[cell.id], pos: leftCell.pos };
+                newMap[activeMapId].cellsGrid.cells[leftCell.id] = {...cells[leftCell.id], pos };
             }
         };
     }, cells)
