@@ -9,6 +9,7 @@ import { MAP_SIZE } from '../constants/map';
 import {
     EMPTY_CELL_VALUE,
 } from '../constants/cellsvalue';
+import { BLOCK_COUNT } from './constants';
 
 const getNewEntry = (cells) => {};
 
@@ -36,7 +37,7 @@ export const generateNewCells = (getPlayer = false) => {
     let cells = [];
     times(i => cells = [...cells, { id: i, value: 0, pos: i }], (MAP_SIZE * MAP_SIZE))
     cells = compose(
-        addRandomBlocks(4),
+        addRandomBlocks(BLOCK_COUNT),
     )(cells);
     if(getPlayer)
         cells = addPlayer(cells);

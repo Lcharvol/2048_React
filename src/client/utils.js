@@ -35,7 +35,7 @@ export const getMapTemplateAreas = () => {
 
 export const getGridSize = () => (MAP_SIZE * (CELL_SIZE + CELL_MARGIN)) - CELL_MARGIN;
 
-export const getGridWidth = () => getGridSize() + 65;
+export const getGridWidth = () => getGridSize() + 55;
 
 export const isAGate = (pos, gates) => {
     let res = false;

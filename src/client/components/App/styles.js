@@ -24,11 +24,9 @@ export const GridContainer = styled.div`
     top: ${({ top }) => `${top}px`};
     display:flex;
     flex-direction: row;
-    padding:5px;
     width:${getGridSize() + 50}px;
     height:${getGridSize() + 50}px;
     border-radius: 4px;
-    background-color:rgb(22,22,22);
     box-shadow: inset 15px 15px 20px rgba(15,15, 15, 0.5);
     transition: all 0.2s ease-in-out;
     z-index: ${({ position }) => position};
@@ -49,8 +47,8 @@ export const Map = styled.div`
 export const Shadow = styled.div`
     position:relative;
     padding:5px;
-    min-width:${getGridSize() + 50}px;
-    min-height:${getGridSize() + 50}px;
+    min-width:${getGridSize() + 40}px;
+    min-height:${getGridSize() + 40}px;
     border-radius: 4px;
     background-color:${({ isActive }) => isActive ? 'rgba(0,0,0,0)' : 'rgba(0,0,0,0.6)'};
     z-index: 1000;

@@ -10,6 +10,8 @@ import {
     INTIAL_GATES_NUMBER,
     INITIAL_MAP_SIZE,
 } from './constants';
+import { EMPTY_CELL_VALUE } from '../constants/cellsvalue';
+import { getRandomNumber } from '../utils';
 
 const checkGateCycle = [
     {
@@ -31,7 +33,7 @@ const checkGateCycle = [
 ]
 
 export const generateGate = (grid, newMap) => {
-    const { pos } = grid;
+    const { pos, cellsGrid: { cells } } = grid;
     const gridIndex = findIndex(propEq('id', grid.id))(newMap)
     let newGate = {};
     map(toCheck => {
@@ -42,9 +44,15 @@ export const generateGate = (grid, newMap) => {
         
     }, checkGateCycle);
     if(isEmpty(newGate)) {
+        let gatePos = getRandomNumber(0, 8);
+        let cellAtPos = findIndex(propEq('pos', gatePos))(cells);
+        while(cells[cellAtPos].value !== EMPTY_CELL_VALUE) {
+            gatePos = getRandomNumber(0, 8);
+            cellAtPos = findIndex(propEq('pos', gatePos))(cells);
+        }
         newGate = {
-            pos: 0,
-            gridPosExit: 0,
+            pos: gatePos,
+            gridPosExit: pos - 1,
         }; 
     }
     newMap[gridIndex].gates = [...newMap[gridIndex].gates, newGate];

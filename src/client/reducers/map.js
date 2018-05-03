@@ -3,19 +3,21 @@ import {
   MOVE_RIGHT,
   MOVE_TOP,
   MOVE_BOTTOM,
-  MOVE_MAP_TOP,
   MOVE_MAP_BOTTOM,
   MOVE_MAP_RIGHT,
   MOVE_MAP_LEFT,
+  CHECK_PLAYER_POSITION,
 } from '../actions/move';
 import {
   INIT_MAP,
+  MOVE_MAP_TOP,
 } from '../actions/map';
 
 import { moveTop } from '../actions/moveTop';
 import { moveBottom } from '../actions/moveBottom';
 import { moveRight } from '../actions/moveRight';
 import { moveLeft } from '../actions/moveLeft';
+import { checkPlayerPosition } from '../actions/checkPosition';
 import {
   moveMapTop,
   moveMapBottom,
@@ -70,6 +72,11 @@ const reducer = (state = {}, action) => {
       return ({
         ...state,
         map: moveMapLeft(state),
+      })
+    case CHECK_PLAYER_POSITION:
+      return ({
+        ...state,
+        map: checkPlayerPosition(state),
       })
     default:
         return state;

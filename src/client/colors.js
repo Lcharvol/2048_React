@@ -1,7 +1,7 @@
 import { getRandomNumber } from './utils';
 import { length } from 'ramda';
 
-export const GATE_COLOR = 'rgba(25,25,25,0.6)';
+export const GATE_COLOR = 'rgba(25,25,25,0.5)';
 
 export const FAKE_CELL_COLOR = 'rgba(25,25,25,0.2)'
 

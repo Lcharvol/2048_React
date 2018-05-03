@@ -3,7 +3,7 @@ import { array, object, func, bool } from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import EventListener from 'react-event-listener';
-import { map } from 'ramda';
+import { map, equals, findIndex, propEq } from 'ramda';
 import { compose, withStateHandlers, lifecycle } from 'recompose';
 
 import {
@@ -86,6 +86,13 @@ export default compose(
           setTimeout(() => {
             this.props.handleChangeDisplayMap();
           }, 500);
+        },
+        componentWillReceiveProps(props) {
+            const { mapItem } = props;
+            const activeMapPos = mapItem[findIndex(propEq('active', true))(mapItem)].pos;
+            if(!equals(activeMapPos, Math.floor(INITIAL_MAP_SIZE / 2))) {
+                console.log('wioejfoiwjefojwofe');
+            }
         },
     }),
 )(App);
