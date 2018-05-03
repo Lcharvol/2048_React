@@ -1,4 +1,4 @@
-import { equals, times, join } from 'ramda';
+import { equals, times, join, map } from 'ramda';
 
 import { PLAYER_VALUE } from './constants/cellsvalue';
 import { MAP_SIZE, CELL_SIZE, CELL_MARGIN } from './constants/map';
@@ -36,3 +36,12 @@ export const getMapTemplateAreas = () => {
 export const getGridSize = () => (MAP_SIZE * (CELL_SIZE + CELL_MARGIN)) - CELL_MARGIN;
 
 export const getGridWidth = () => getGridSize() + 65;
+
+export const isAGate = (pos, gates) => {
+    let res = false;
+    map(gate => {
+        if(equals(pos, gate.pos))
+            res = true;
+    }, gates)
+    return res;
+}

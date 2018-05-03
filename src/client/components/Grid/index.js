@@ -19,9 +19,10 @@ const propTypes = {
     cells: array.isRequired,
     player: object,
     color: string,
+    gates: array.isRequired,
 }
 
-const Grid = ({ cells, player = {}, color}) => (
+const Grid = ({ cells, player = {}, color, gates }) => (
     <GridContainer size={getGridSize() + 50}>
         <GridInner template={getGridTemplateAreas()} size={getGridSize()}>
             {map(cell => (
@@ -34,7 +35,7 @@ const Grid = ({ cells, player = {}, color}) => (
                 />
             ), cells)}
         </GridInner>
-        <FakeGrid cells={cells} player={player} color={color} />
+        <FakeGrid cells={cells} player={player} color={color} gates={gates} />
     </GridContainer>
 );
 

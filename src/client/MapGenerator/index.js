@@ -12,7 +12,7 @@ const generateIntitiMap = () => {
     times(i => {
         initialMap = [...initialMap, {
             id: i,
-            cellsGrid: generateNewCells(true),
+            cellsGrid: generateNewCells(isActiveGrid(i)),
             color: getRandomGradient(),
             gates: [],
             active: isActiveGrid(i),

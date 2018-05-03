@@ -20,7 +20,7 @@ export const FakeCell = styled.div`
     display:flex;
     justify-content: center;
     align-items: center;
-    background-color:rgba(25,25,25,0.2);
+    background-color:${({ color }) => color};
     border-radius:2px;
     color:rgb(116,185,182);
     box-shadow: inset 4px 4px 4px rgba(0,0, 0,0.05);

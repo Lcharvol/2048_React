@@ -1,35 +1,53 @@
-import { map, isEmpty, times } from 'ramda';
+import {
+    map,
+    isEmpty,
+    times,
+    findIndex,
+    propEq,
+} from 'ramda';
 
-import { INTIAL_GATES_NUMBER, INITIAL_MAP_SIZE } from './constants';
+import {
+    INTIAL_GATES_NUMBER,
+    INITIAL_MAP_SIZE,
+} from './constants';
 
 const checkGateCycle = [
     {
-        id: 0,
-        idToCheck: -(INITIAL_MAP_SIZE / INITIAL_MAP_SIZE),
+        posToCheck: -(Math.sqrt(INITIAL_MAP_SIZE)),
         position: 'top',
     },
     {
-        id: 1,
-        idToCheck: (INITIAL_MAP_SIZE / INITIAL_MAP_SIZE),
+        posToCheck: Math.sqrt(INITIAL_MAP_SIZE),
         position: 'bottom',
     },
     {
-        id: 2,
-        idToCheck: 1,
+        posToCheck: 1,
         position: 'right',
     },
     {
-        id: 3,
-        idToCheck: -1,
+        posToCheck: -1,
         position: 'left',
     },
 ]
 
 export const generateGate = (grid, newMap) => {
-    if(newMap[grid.id].gates.length >= 2) return newMap;
+    const { pos } = grid;
+    const gridIndex = findIndex(propEq('id', grid.id))(newMap)
+    let newGate = {};
     map(toCheck => {
-
-    }, checkGateCycle)
+        let gridToCheckIndex = findIndex(propEq('pos', pos + toCheck.posToCheck))(newMap);
+        if(gridToCheckIndex < 0)
+            return;
+        let gridToCheck = newMap[gridToCheckIndex];
+        
+    }, checkGateCycle);
+    if(isEmpty(newGate)) {
+        newGate = {
+            pos: 0,
+            gridPosExit: 0,
+        }; 
+    }
+    newMap[gridIndex].gates = [...newMap[gridIndex].gates, newGate];
     return newMap;
 };
 

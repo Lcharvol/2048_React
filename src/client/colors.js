@@ -1,6 +1,10 @@
 import { getRandomNumber } from './utils';
 import { length } from 'ramda';
 
+export const GATE_COLOR = 'rgba(25,25,25,0.6)';
+
+export const FAKE_CELL_COLOR = 'rgba(25,25,25,0.2)'
+
 const RED = 'linear-gradient( 160deg, #FEB692, #EA5455  120%)';
 const GREEN = 'linear-gradient( 160deg, #92FFC0, #002661  120%)';
 const BLUE = 'linear-gradient( 160deg, #C2FFD8, #465EFB  120%)';

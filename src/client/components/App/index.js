@@ -47,7 +47,12 @@ const App = ({
                             <Shadow
                                 isActive={grid.active}
                             />
-                            <Grid cells={grid.cellsGrid.cells} player={grid.active ? player : undefined} color={grid.color} />
+                            <Grid
+                                cells={grid.cellsGrid.cells}
+                                player={grid.active ? player : undefined}
+                                color={grid.color}
+                                gates={grid.gates}
+                            />
                     </GridContainer>
                 ),mapItem)}
         </Container>
