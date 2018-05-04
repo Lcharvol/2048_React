@@ -1,12 +1,10 @@
-import { map, propEq, find, equals, filter, findIndex } from 'ramda';
+import { map, propEq, equals, filter, findIndex } from 'ramda';
 
 import { INITIAL_MAP_SIZE } from '../MapGenerator/constants';
-import { getActiveGrid } from '../selectors/map';
 import { addNewGrid } from '../components/Grid/utils';
 
 export const moveMapTop = oldMap => {
     let newMap = JSON.parse(JSON.stringify(oldMap));
-    const newActiveGridPos = find(propEq('active', true), newMap).pos + Math.sqrt(INITIAL_MAP_SIZE);
     map(grid => {
         let newPos = grid.pos + Math.sqrt(INITIAL_MAP_SIZE);
         if(newPos >= INITIAL_MAP_SIZE) {
@@ -27,7 +25,6 @@ export const moveMapTop = oldMap => {
 
 export const moveMapBottom = oldMap => {
     let newMap = JSON.parse(JSON.stringify(oldMap));
-    const newActiveGridPos = find(propEq('active', true), newMap).pos + Math.sqrt(INITIAL_MAP_SIZE);
     map(grid => {
         let newPos = grid.pos - (Math.sqrt(INITIAL_MAP_SIZE));
         if(newPos < 0) {
@@ -48,7 +45,6 @@ export const moveMapBottom = oldMap => {
 
 export const moveMapLeft = oldMap => {
     let newMap = JSON.parse(JSON.stringify(oldMap));
-    const newActiveGridPos = find(propEq('active', true), newMap).pos + Math.sqrt(INITIAL_MAP_SIZE);
     map(grid => {
         let newPos = grid.pos + 1;
         if(grid.pos % Math.sqrt(INITIAL_MAP_SIZE) === Math.sqrt(INITIAL_MAP_SIZE) - 1) {
@@ -69,7 +65,6 @@ export const moveMapLeft = oldMap => {
 
 export const moveMapRight = oldMap => {
     let newMap = JSON.parse(JSON.stringify(oldMap));
-    const newActiveGridPos = find(propEq('active', true), newMap).pos + Math.sqrt(INITIAL_MAP_SIZE);
     map(grid => {
         let newPos = grid.pos - 1;
         if(grid.pos % Math.sqrt(INITIAL_MAP_SIZE) === 0) {

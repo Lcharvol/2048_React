@@ -17,7 +17,7 @@ import { moveMap } from '../../actions/map';
 import Grid from '../Grid';
 import { getMap, getActiveGrid } from '../../selectors/map';
 import { INITIAL_MAP_SIZE } from '../../MapGenerator/constants';
-import { getMapTemplateAreas, getGridWidth, getMoveMapDirection } from '../../utils';
+import { getGridWidth, getMoveMapDirection } from '../../utils';
 
 const propTypes = {
     cellsGrid: array,

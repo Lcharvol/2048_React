@@ -14,13 +14,6 @@ import { moveBottom } from '../actions/moveBottom';
 import { moveRight } from '../actions/moveRight';
 import { moveLeft } from '../actions/moveLeft';
 import { checkPlayerPosition } from '../actions/checkPosition';
-import {
-  moveMapTop,
-  moveMapBottom,
-  moveMapRight,
-  moveMapLeft,
-} from '../actions/moveMap';
-
 
 const reducer = (state = {}, action) => {
   switch (action.type) {

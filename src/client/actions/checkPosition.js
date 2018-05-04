@@ -1,7 +1,6 @@
 import {
     findIndex,
     propEq,
-    contains,
     map,
 } from 'ramda';
 
@@ -11,7 +10,7 @@ import { moveMap } from './map';
 export const checkPlayerPosition = oldMap => {
     const activeMapIndex = findIndex(propEq('active', true))(oldMap);
     const grid = oldMap[activeMapIndex];
-    const { cellsGrid: { cells }, id, gates, pos }= grid;
+    const { cellsGrid: { cells }, gates }= grid;
     const playerIndex = findIndex(propEq('value', PLAYER_VALUE))(cells);
     if(playerIndex === -1) return oldMap;
     map(gate => {

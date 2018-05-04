@@ -29,17 +29,6 @@ export const getGridTemplateAreas = () => {
     return templateString;
 };
 
-export const getMapTemplateAreas = () => {
-    let templateTab = [];
-    times(i => {
-        let str = '';
-        times(i2 => str += `grid_${(i * Math.sqrt(INITIAL_MAP_SIZE)) + i2} `,Math.sqrt(INITIAL_MAP_SIZE));
-        templateTab = [...templateTab, `'${str}'`];
-    },Math.sqrt(INITIAL_MAP_SIZE));
-    const templateString = join(' ', templateTab);
-    return templateString;
-};
-
 export const getGridSize = () => (MAP_SIZE * (CELL_SIZE + CELL_MARGIN)) - CELL_MARGIN;
 
 export const getGridWidth = () => getGridSize() + 55;

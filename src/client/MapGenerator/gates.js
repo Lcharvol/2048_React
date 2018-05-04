@@ -34,8 +34,8 @@ const checkGateCycle = [
 ]
 
 export const generateGate = (grid, newMap) => {
-    const { pos, cellsGrid: { cells } } = grid;
-    const gridIndex = findIndex(propEq('id', grid.id))(newMap)
+    const { cellsGrid: { cells }, id } = grid;
+    const gridIndex = findIndex(propEq('id', id))(newMap)
     let newGate = {};
     // map(toCheck => {
     //     let gridToCheckIndex = findIndex(propEq('pos', pos + toCheck.posToCheck))(newMap);
