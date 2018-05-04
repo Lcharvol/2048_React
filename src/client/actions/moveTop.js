@@ -15,7 +15,7 @@ export const moveTop = ({ map: oldMap }) => {
     let newMap = JSON.parse(JSON.stringify(oldMap));
     const activeMapId = findIndex(propEq('active', true))(newMap);
     const grid = newMap[activeMapId];
-    const { cellsGrid: { cells }, id }= grid;
+    const { cellsGrid: { cells } }= grid;
     map(cell =>  {
         if(isAPlayerCell(cell)) {
             if(canMove(cell, cells)) {

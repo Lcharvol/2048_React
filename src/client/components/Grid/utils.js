@@ -13,10 +13,10 @@ const generateNewGrid = (id, pos, cellsGrid) => ({
 });
 
 export const addNewGrid = (id, pos, oldMap) => {
-    console.log('addNewGrid!!!!!!!!!')
     let newMap = JSON.parse(JSON.stringify(oldMap));
     const cellsGrid = generateNewCells();
     const newGrid = generateNewGrid(id, pos, cellsGrid);
     newMap = [...newMap, newGrid];
+    newMap = generateGates(newMap);
     return newMap;
 }

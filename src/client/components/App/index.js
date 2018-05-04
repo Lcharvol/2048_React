@@ -9,7 +9,6 @@ import { compose, withStateHandlers, lifecycle } from 'recompose';
 import {
     Container,
     GridContainer,
-    HiddenGridContainer,
     Map,
     Shadow,
 } from './styles';

@@ -11,6 +11,8 @@
     "react-event-listener": "^0.5.1",
     "react-keydown": "^1.9.5",
     "react-redux": "^5.0.6",
+    "prettier": "1.7.0",
+    "lint-staged": "^4.2.1",
     "react-scripts": "1.0.17",
     "recompose": "^0.27.0",
     "redux": "^3.7.2",
@@ -22,6 +24,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,json,css}": ["prettier --write", "git add"]
   }
 }
