@@ -14,10 +14,11 @@ import {
     Shadow,
 } from './styles';
 import { move } from '../../actions/move';
+import { moveMap } from '../../actions/map';
 import Grid from '../Grid';
 import { getMap, getActiveGrid } from '../../selectors/map';
 import { INITIAL_MAP_SIZE } from '../../MapGenerator/constants';
-import { getMapTemplateAreas, getGridWidth } from '../../utils';
+import { getMapTemplateAreas, getGridWidth, getMoveMapDirection } from '../../utils';
 
 const propTypes = {
     cellsGrid: array,
@@ -61,7 +62,7 @@ const App = ({
 
 App.propTypes = propTypes;
 
-const actions = { move };
+const actions = { move, moveMap };
 
 const mapStateToProps = state => ({
   cellsGrid: getActiveGrid(state),
@@ -91,7 +92,7 @@ export default compose(
             const { mapItem } = props;
             const activeMapPos = mapItem[findIndex(propEq('active', true))(mapItem)].pos;
             if(!equals(activeMapPos, Math.floor(INITIAL_MAP_SIZE / 2))) {
-                console.log('wioejfoiwjefojwofe');
+                this.props.moveMap(getMoveMapDirection(activeMapPos));
             }
         },
     }),

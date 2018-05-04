@@ -4,7 +4,7 @@ import { INITIAL_MAP_SIZE } from '../MapGenerator/constants';
 import { getActiveGrid } from '../selectors/map';
 import { addNewGrid } from '../components/Grid/utils';
 
-export const moveMapTop = ({ map: oldMap }) => {
+export const moveMapTop = oldMap => {
     let newMap = JSON.parse(JSON.stringify(oldMap));
     const newActiveGridPos = find(propEq('active', true), newMap).pos + Math.sqrt(INITIAL_MAP_SIZE);
     map(grid => {
@@ -25,7 +25,7 @@ export const moveMapTop = ({ map: oldMap }) => {
     return newMap;
 }
 
-export const moveMapBottom = ({ map: oldMap }) => {
+export const moveMapBottom = oldMap => {
     let newMap = JSON.parse(JSON.stringify(oldMap));
     const newActiveGridPos = find(propEq('active', true), newMap).pos + Math.sqrt(INITIAL_MAP_SIZE);
     map(grid => {
@@ -46,7 +46,7 @@ export const moveMapBottom = ({ map: oldMap }) => {
     return newMap;
 }
 
-export const moveMapLeft = ({ map: oldMap }) => {
+export const moveMapLeft = oldMap => {
     let newMap = JSON.parse(JSON.stringify(oldMap));
     const newActiveGridPos = find(propEq('active', true), newMap).pos + Math.sqrt(INITIAL_MAP_SIZE);
     map(grid => {
@@ -67,7 +67,7 @@ export const moveMapLeft = ({ map: oldMap }) => {
     return newMap;
 }
 
-export const moveMapRight = ({ map: oldMap }) => {
+export const moveMapRight = oldMap => {
     let newMap = JSON.parse(JSON.stringify(oldMap));
     const newActiveGridPos = find(propEq('active', true), newMap).pos + Math.sqrt(INITIAL_MAP_SIZE);
     map(grid => {

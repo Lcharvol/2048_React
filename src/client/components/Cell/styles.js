@@ -15,7 +15,7 @@ export const PlayerCell = styled.div`
     height:${CELL_SIZE}px;
     left: ${({ left }) => `${left}px`};
     top: ${({ top }) => `${top}px`};
-    transition: all 0.2s ease;
+    transition: all 0.1s;
     background: url(${playerIcon});
     background-size: 100%;
     background-position: center;

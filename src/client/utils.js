@@ -2,6 +2,13 @@ import { equals, times, join, map } from 'ramda';
 
 import { PLAYER_VALUE } from './constants/cellsvalue';
 import { MAP_SIZE, CELL_SIZE, CELL_MARGIN } from './constants/map';
+import {
+    TOP,
+    BOTTOM,
+    LEFT,
+    RIGHT,
+} from './constants/directions';
+
 import { INITIAL_MAP_SIZE } from './MapGenerator/constants';
 
 export const getRandomNumber = (min, max) => {
@@ -44,4 +51,16 @@ export const isAGate = (pos, gates) => {
             res = true;
     }, gates)
     return res;
+};
+
+export const getMoveMapDirection = activeGridPos => {
+    if(equals(activeGridPos, (Math.floor(INITIAL_MAP_SIZE / 2)))) {
+        return LEFT;
+    }
+    return TOP;
+};
+
+export const getRandomDirection = () => {
+    const directions = [TOP, BOTTOM, LEFT, RIGHT];
+    return directions[getRandomNumber(0, 3)];
 }

@@ -1,5 +1,6 @@
 import { map, find, propEq, findIndex } from 'ramda';
 
+import { checkPlayerPosition } from './checkPosition';
 import { isAPlayerCell } from '../utils';
 import { MAP_SIZE } from '../constants/map';
 
@@ -24,6 +25,7 @@ export const moveRight = ({ map: oldMap }) => {
                 newMap[activeMapId].cellsGrid.cells[rightCell.id] = {...cells[rightCell.id], pos};
             }
         };
-    }, cells)
+    }, cells);
+    newMap = checkPlayerPosition(newMap);
     return newMap;
 };
