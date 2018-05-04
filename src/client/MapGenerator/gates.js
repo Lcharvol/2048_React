@@ -48,7 +48,7 @@ export const generateGate = (grid, newMap) => {
         let gatePos = getRandomNumber(0, MAP_SIZE - 1);
         let cellAtPos = findIndex(propEq('pos', gatePos))(cells);
         while(cells[cellAtPos].value !== EMPTY_CELL_VALUE) {
-            gatePos = getRandomNumber(0, 8);
+            gatePos = getRandomNumber(0, MAP_SIZE - 1);
             cellAtPos = findIndex(propEq('pos', gatePos))(cells);
         }
         newGate = {

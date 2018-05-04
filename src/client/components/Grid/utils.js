@@ -1,6 +1,7 @@
 import { generateNewCells } from '../../RoomGenerator/generate';
 import { getRandomGradient } from '../../colors';
 import { INITIAL_MAP_SIZE } from '../../MapGenerator/constants';
+import { generateGates } from '../../MapGenerator/gates';
 
 const generateNewGrid = (id, pos, cellsGrid) => ({
     active: false,
@@ -12,6 +13,7 @@ const generateNewGrid = (id, pos, cellsGrid) => ({
 });
 
 export const addNewGrid = (id, pos, oldMap) => {
+    console.log('addNewGrid!!!!!!!!!')
     let newMap = JSON.parse(JSON.stringify(oldMap));
     const cellsGrid = generateNewCells();
     const newGrid = generateNewGrid(id, pos, cellsGrid);
