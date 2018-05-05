@@ -4,58 +4,54 @@ import {
     times,
     findIndex,
     propEq,
+    contains,
+    equals,
 } from 'ramda';
 
 import {
     INTIAL_GATES_NUMBER,
     INITIAL_MAP_SIZE,
 } from './constants';
+import {
+    TOP,
+    BOTTOM,
+    LEFT,
+    RIGHT,
+} from '../constants/directions';
 import { MAP_SIZE } from '../constants/map';
 import { EMPTY_CELL_VALUE } from '../constants/cellsvalue';
-import { getRandomNumber, getRandomDirection } from '../utils';
+import { getRandomNumber } from '../utils';
 
-const checkGateCycle = [
-    {
-        posToCheck: -(Math.sqrt(INITIAL_MAP_SIZE)),
-        position: 'top',
-    },
-    {
-        posToCheck: Math.sqrt(INITIAL_MAP_SIZE),
-        position: 'bottom',
-    },
-    {
-        posToCheck: 1,
-        position: 'right',
-    },
-    {
-        posToCheck: -1,
-        position: 'left',
-    },
-]
+export const getGateDirection = gatePos => {
+    if((gatePos % MAP_SIZE) === 0 ) return LEFT;
+    else if((gatePos % MAP_SIZE) === (MAP_SIZE - 1)) return RIGHT
+    else if(Math.floor(gatePos / MAP_SIZE) < 1) return TOP;
+    else if(Math.floor(gatePos / MAP_SIZE) < MAP_SIZE) return BOTTOM;
+};
+
+export const generatateGatePos = () => {
+   const side = getRandomNumber(1, 2);
+   let add = 0;
+   if (equals(side, 2))
+    add = MAP_SIZE * (MAP_SIZE - 1);
+    return getRandomNumber(0, MAP_SIZE - 1) + add;
+};
 
 export const generateGate = (grid, newMap) => {
-    const { cellsGrid: { cells }, id } = grid;
+    const { cellsGrid: { cells }, id, gates } = grid;
     const gridIndex = findIndex(propEq('id', id))(newMap)
     let newGate = {};
-    // map(toCheck => {
-    //     let gridToCheckIndex = findIndex(propEq('pos', pos + toCheck.posToCheck))(newMap);
-    //     if(gridToCheckIndex < 0)
-    //         return;
-    //     let gridToCheck = newMap[gridToCheckIndex];
-        
-    // }, checkGateCycle);
-    if(isEmpty(newGate)) {
-        let gatePos = getRandomNumber(0, MAP_SIZE - 1);
-        let cellAtPos = findIndex(propEq('pos', gatePos))(cells);
-        while(cells[cellAtPos].value !== EMPTY_CELL_VALUE) {
-            gatePos = getRandomNumber(0, MAP_SIZE - 1);
-            cellAtPos = findIndex(propEq('pos', gatePos))(cells);
-        }
-        newGate = {
-            pos: gatePos,
-            direction: getRandomDirection(),
-        }; 
+    let gatePos = generatateGatePos();
+    let cellAtPos = findIndex(propEq('pos', gatePos))(cells);
+    while((cells[cellAtPos].value !== EMPTY_CELL_VALUE) && contains(propEq('pos', gatePos), gates)) {
+        gatePos = generatateGatePos();
+        cellAtPos = findIndex(propEq('pos', gatePos))(cells);
     }
+    const direction = getGateDirection(gatePos);
+    newGate = {
+        pos: gatePos,
+        direction,
+    }; 
     newMap[gridIndex].gates = [...newMap[gridIndex].gates, newGate];
     return newMap;
 };

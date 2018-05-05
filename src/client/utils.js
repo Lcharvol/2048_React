@@ -48,8 +48,3 @@ export const getMoveMapDirection = activeGridPos => {
     }
     return TOP;
 };
-
-export const getRandomDirection = () => {
-    const directions = [TOP, BOTTOM, LEFT, RIGHT];
-    return directions[getRandomNumber(0, 3)];
-}

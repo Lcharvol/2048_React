@@ -22,10 +22,8 @@ export const getInitialMap = () => (dispatch) => {
 };
 
 const addPlayer = oldMap => {
-    console.log('oldMap:' , oldMap)
     const activeMapId = findIndex(propEq('active', true))(oldMap);
     const {cellsGrid: { cells }, gates} = oldMap[activeMapId];
-    console.log('gates: ', gates);
     const newPlayerPos = gates[0].pos;
     const nePlayerIndex = findIndex(propEq('pos', newPlayerPos))(cells);
     cells[nePlayerIndex].value = PLAYER_VALUE;
