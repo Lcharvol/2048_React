@@ -16,9 +16,11 @@ export const moveBottom = ({ map: oldMap }) => {
     const activeMapId = findIndex(propEq('active', true))(newMap);
     const grid = newMap[activeMapId];
     const { cellsGrid: { cells } }= grid;
+    let hasMoved = false;
     map(cell =>  {
         if(isAPlayerCell(cell)) {
             if(canMove(cell, cells)) {
+                hasMoved = true;
                 const { pos } = cell;
                 const bottomCell = find(propEq('pos', pos + MAP_SIZE), cells);
                 newMap[activeMapId].cellsGrid.cells[cell.id] = {...cells[cell.id], pos: bottomCell.pos };
@@ -26,6 +28,7 @@ export const moveBottom = ({ map: oldMap }) => {
             }
         };
     }, cells);
-    newMap = checkPlayerPosition(newMap);
+    if(hasMoved)
+        newMap = checkPlayerPosition(newMap);
     return newMap;
 };

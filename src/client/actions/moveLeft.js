@@ -16,9 +16,11 @@ export const moveLeft = ({ map: oldMap }) => {
     const activeMapId = findIndex(propEq('active', true))(newMap);
     const grid = newMap[activeMapId];
     const { cellsGrid: { cells } }= grid;
+    let hasMoved = false;
     map(cell => {
         if(isAPlayerCell(cell)) {
             if(canMove(cell, cells)) {
+                hasMoved = true;
                 const { pos } = cell;
                 const leftCell = find(propEq('pos', pos - 1), cells);
                 newMap[activeMapId].cellsGrid.cells[cell.id] = {...cells[cell.id], pos: leftCell.pos };
@@ -26,6 +28,7 @@ export const moveLeft = ({ map: oldMap }) => {
             }
         };
     }, cells)
-    newMap = checkPlayerPosition(newMap);
+    if(hasMoved)
+        newMap = checkPlayerPosition(newMap);
     return newMap;
 };

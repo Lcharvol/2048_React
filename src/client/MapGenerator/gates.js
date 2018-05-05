@@ -30,11 +30,23 @@ export const getGateDirection = gatePos => {
 };
 
 export const generatateGatePos = () => {
-   const side = getRandomNumber(1, 2);
-   let add = 0;
-   if (equals(side, 2))
-    add = MAP_SIZE * (MAP_SIZE - 1);
+    const dir = getRandomNumber(1, 2);
+    const side = getRandomNumber(1, 2);
+    let add = 0;
+    let mult = 1;
+    if(equals(dir, 1)) {
+    if (equals(side, 2))
+        add = MAP_SIZE * (MAP_SIZE - 1);
     return getRandomNumber(0, MAP_SIZE - 1) + add;
+    } else {
+    if (equals(side, 2)) { 
+        add = MAP_SIZE - 1;
+        mult = MAP_SIZE;
+    }
+    else
+        mult = MAP_SIZE;
+    return (getRandomNumber(0, MAP_SIZE - 1) * mult) + add;
+    }
 };
 
 export const generateGate = (grid, newMap) => {
