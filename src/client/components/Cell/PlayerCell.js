@@ -25,9 +25,7 @@ const PlayerCell = ({
         left={left}
         pos={pos}
         isBig={isBig}
-    >
-    {console.log('isBig: ', isBig)}
-    </PlayerCellContainer>
+    />
 );
 
 PlayerCell.propTypes = propTypes;
@@ -45,7 +43,7 @@ export default compose(
         componentDidMount() {
             setTimeout(() => {
                 this.props.handleChangePlayerSize();
-            }, 500);
+            }, 100);
         },
     }),
 )(PlayerCell);

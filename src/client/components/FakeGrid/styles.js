@@ -13,7 +13,7 @@ export const GridContainer = styled.div`
     z-index:50;
     background: ${({ color }) => color};
     border-radius:3px;
-    box-shadow: inset 12px 12px 30px rgba(25,25,25, 0.7);
+    box-shadow: -1px 2px 10px 3px  rgba(25,25,25, 0.4) inset;
 `;
 
 export const FakeCell = styled.div`
@@ -23,7 +23,7 @@ export const FakeCell = styled.div`
     background-color:${({ color }) => color};
     border-radius:2px;
     color:rgb(116,185,182);
-    box-shadow: inset 4px 4px 4px rgba(0,0, 0,0.05);
+    box-shadow: -1px 2px 5px 3px  rgba(45,45,45, 0.05) inset;
     font-size:2em;
     grid-area: ${({ pos }) => `cell_${pos}`};
     border-radius: 13px;
