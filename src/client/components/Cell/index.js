@@ -5,12 +5,10 @@ import {
     number,
 } from 'prop-types';
 
+import PlayerCell from './PlayerCell';
 import Block from '../Block';
 import LifeCell from '../LifeCell';
-import {
-    PlayerCell,
-    EmptyCell,
-} from './styles';
+import { EmptyCell } from './styles';
 import {
     EMPTY_CELL_VALUE,
     BLOCK_VALUE,
